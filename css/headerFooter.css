@@ -134,3 +134,36 @@ footer ul{
     border-left: 10px solid #333;
     color: #fff;
 }
+
+
+/*****************************************CVR**************************************/
+
+article section img{
+	padding-top: 10px;
+	padding-left: 10px;
+	float: left;
+	width: 100px;
+}
+
+article section{
+	margin: 10px;
+	width: 30%;
+	height: 30%;
+	background: grey;
+	float: left;
+}
+
+article section div div{
+	float: left;
+}
+
+
+div.info{
+
+	padding-left: 15px;
+	height: 15%;
+}
+
+p.valor{
+	padding-left: 10px;
+}
