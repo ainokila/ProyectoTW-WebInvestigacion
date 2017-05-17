@@ -1,0 +1,41 @@
+﻿/*************************INICIO Publicaciones******************************************/
+.publicaciones ul {
+    list-style: none;
+    margin:20px;
+    background-color: #E6F1D1;
+    box-shadow: 10px 10px 40px #888888;
+    padding: 10px;
+    padding-bottom: 50px;
+}
+
+.publicaciones li {
+    display: block;
+    float: left;
+    padding: 10px;
+}
+
+.publicaciones{
+    margin-top: 35px;  
+    margin-bottom: 100px;
+    box-shadow: 10px 10px 40px #888888;
+    color: #000817; 
+    padding: 15px; 
+}
+/*************************FIN Publicaciones******************************************/
+
+/*************************INICIO tabla******************************************/
+
+table{  
+    margin-top: 15px;
+    margin-left: 20px;
+    border-collapse: collapse;
+    border: 1px solid;
+    width: 97%;
+    background-color: #E6F1D1;
+}
+
+th, td{
+    padding: 10px;
+    text-align: left;
+}
+/*************************FIN tabla******************************************/
