@@ -1,12 +1,13 @@
 ﻿body{
 	margin: 0;  
-	background-color: #F8FBFF;  
+	background-color: #F8FBFF; 
+	background-image: url(../img/wallpaper.jpg); 
 }
 
 /*************************INICIO header******************************************/
 
 header {
-	background-color: #DDDFE3;
+	background-color: #E6F1D1;
 	color: #000817;
     height: 80px;
 	text-align: center;
@@ -53,7 +54,7 @@ footer .izquierda img {
 }
 
 footer{
-	background-color: #DDDFE3;
+	background-color: #E6F1D1;
 	color: #000817;
     height: 150px;
 	text-align: center;
@@ -123,7 +124,7 @@ footer ul{
 }
 
 #menu ul li {
-    background-color: #DDDFE3;
+    background-color: #E6F1D1;
 }
 
 #menu ul li a {
