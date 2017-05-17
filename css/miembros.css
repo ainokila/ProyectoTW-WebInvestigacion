@@ -1,0 +1,19 @@
+#miembros{
+	margin: 40px;
+}
+
+.miembro .foto img{
+	width: 130px;
+	float: left;
+	
+}
+
+.miembro .informacion{
+	border: 15px;
+}
+
+.informacion table{
+	padding-left: 20px;
+	width: 50%;
+	margin: 30px;
+}
