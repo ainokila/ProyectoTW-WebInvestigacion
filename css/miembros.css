@@ -1,19 +1,29 @@
 #miembros{
 	margin: 40px;
+	background-color: #DDDFE3;
+    color: #000817; 
+    padding: 30px;
 }
 
 .miembro .foto img{
 	width: 130px;
+	margin-top: 25px;
 	float: left;
 	
 }
 
 .miembro .informacion{
-	border: 15px;
 }
 
 .informacion table{
 	padding-left: 20px;
 	width: 50%;
 	margin: 30px;
+}
+
+.miembro{
+	background-color: #B5B7BA;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    padding-left: 10px;
 }

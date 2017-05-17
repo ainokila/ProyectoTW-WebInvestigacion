@@ -14,7 +14,6 @@ header {
 	width: 100%;
 	left: 0;
 	top: 0;
-	text-align: center;
 }
 
 header .izquierda img {
@@ -58,6 +57,7 @@ footer{
 	color: #000817;
     height: 150px;
 	text-align: center;
+	margin-top: 19px;
 }
 
 footer .izquierda{
@@ -106,8 +106,11 @@ footer ul{
 /*************************INICIO menu******************************************/
 
 #menu{	
-    margin-top: 35px;
-    margin-bottom: 30px;
+    margin-top: 80px;
+    position: fixed;
+	width: 100%;
+	left: 0;
+	top: 0;
 }
 
 #menu ul {
