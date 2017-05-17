@@ -1,5 +1,5 @@
-﻿/*************************INICIO principal******************************************/
 
+/*************************INICIO principal******************************************/
 .principal{
     padding-bottom: 40px;
     padding-left: 40px;
@@ -14,12 +14,9 @@
 .principal-der{
     float: right;
     width: 85%;
-    box-shadow: 0px 0px 30px #888888;
     margin-top: 90px;
-    background: rgb(0, 0, 0,0.5);
     color: #000817; 
-    padding: 20px;
+    padding: 20px;   
+    box-shadow: 0px 0px 30px #888888;
 }
-
-
 /*************************FIN principal******************************************/

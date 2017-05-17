@@ -124,3 +124,19 @@ footer ul{
 }
 
 /*************************FIN menu******************************************/
+
+/*************************INICIO Estilo compartido******************************************/
+
+.principal-izq{
+    float: left;
+    width: 15%;
+}
+
+.principal-der{
+    float: right;
+    width: 85%;
+    margin-top: 40px;
+    color: #000817; 
+    padding: 20px;   
+}
+/*************************FIN Estilo compartido******************************************/
