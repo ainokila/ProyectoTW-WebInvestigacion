@@ -1,0 +1,219 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Investigación WEB</title>
+	<link rel="stylesheet" type="text/css" href="../css/headerFooter.css">
+	<link rel="stylesheet" type="text/css" href="../css/editaPublicacion.css">
+</head>
+
+<body>
+	<header>
+		<div class="izquierda">
+			<img src="../img/logo_UGR.png">			
+		</div>
+		<div class="derecha">
+			<div id="login">
+				<p>Usuario</p>
+				<p><a href="../php/sesion.php">Iniciar/Cerrar Sesión</a></p>
+			</div>
+		</div>
+		<div id="title" class="centro">
+			<h1>Titulo Proyecto</h1>
+		</div>
+	</header>
+
+	<div class="clear"></div>
+
+	<div class="principal">
+		<div class="principal-izq">
+			<div id="menu">
+				<ul>
+					<li><a href="../php/principal.php">Principal</a></li>
+					<li><a href="../php/miembros.php">Miembros</a></li>
+					<li><a href="../php/publicaciones.php">Publicaciones</a></li>
+					<li><a href="../php/proyectos.php">Proyectos</a></li>
+				</ul>
+
+				<ul>
+					<li><a href="../php/publicar.php">Añadir publicación</a></li>
+					<li><a href="../php/aniadir-pro.php">Añadir proyecto</a></li>
+				</ul>
+
+				<ul>
+					<li><a href="../php/editar-usuarios.php">Editar usuarios</a></li>
+					<li><a href="../php/log.php">Ver log</a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="principal-der">
+			<div id="publicaciones">
+				<p>Contenido</p>
+				<p>Listado de publicaciones del grupo</p>
+
+				<div class="publicacion">
+					<p>Publicación NºXXXX</p>
+					
+					<div class="informacion">
+
+						<form action="../php/aniadepublicacion.php" method="get">
+							<table border="0">
+				              <tr>
+				                <td>Código</td>
+				                <td><input type="text" name="codigo"></td>
+				              </tr>
+
+				              <tr>
+				                <td>Título</td>
+				                <td><input type="text" name="titulo"></td>
+				              </tr>
+
+				              <tr>
+				                <td>Descripción</td>
+				                <td><input type="large-text" name="descripción"></td>
+				              </tr>
+
+				              <tr>
+				                <td>Comienzo</td>
+				                <td><input type="date" name="comienzo"></td>
+				              </tr>
+
+				              <tr>
+				                <td>Finalización</td>
+				                <td><input type="date" name="finalizacion"></td>
+				              </tr>		
+
+				              <tr>
+				                <td>Entidades Colaboradoras</td>
+				                <td><input type="text" name="entidades"></td>
+				              </tr>
+
+				              <tr>
+				                <td>Cuantía Concedida</td>
+				                <td><input type="number" name="cuantia"></td>
+				              </tr>
+
+
+				              <tr>
+				                <td>Investigador Principal</td>
+				                <td><input type="text" name="investigador"></td>
+				              </tr>
+
+				              <tr>
+				                <td>Investigadores Colaboradores</td>
+				                <td><input type="text" name="investigador-col"></td>
+				              </tr>
+
+				              <tr>
+				                <td>URL</td>
+				                <td><input type="URL" name="url"></td>
+				              </tr>
+
+
+	            			</table>
+            			</form>
+					</div>
+
+				</div>
+				<div class="clear"></div>
+
+				<div class="publicacion">
+					<p>Publicación NºXXXX</p>
+
+					<div class="informacion">
+
+							<table border="0">
+				              <tr>
+				                <td>Código</td>
+				                <td>$codigo</td>
+				              </tr>
+
+				              <tr>
+				                <td>Título</td>
+				                <td>$titulo</td>
+				              </tr>
+
+				              <tr>
+				                <td>Descripción</td>
+				                <td>$descripcion</td>
+				              </tr>
+
+				              <tr>
+				                <td>Comienzo</td>
+				                <td>$comienzo</td>
+				              </tr>
+
+				              <tr>
+				                <td>Finalización</td>
+				                <td>$finalizacion</td>
+				              </tr>		
+
+				              <tr>
+				                <td>Entidades Colaboradoras</td>
+				                <td>$entidades</td>
+				              </tr>
+
+				              <tr>
+				                <td>Cuantía Concedida</td>
+				                <td>$cuantia euros</td>
+				              </tr>
+
+
+				              <tr>
+				                <td>Investigador Principal</td>
+				                <td>$investigador</td>
+				              </tr>
+
+				              <tr>
+				                <td>Investigadores Colaboradores</td>
+				                <td>$investigadores</td>
+				              </tr>
+
+				              <tr>
+				                <td>URL</td>
+				                <td>www.web.com</td>
+				              </tr>
+
+				              	<form action="../php/procesa-usuario.php" method="get">
+	            					<div class="opcion">
+					              		<input type="submit" name="actualizar" value="Actualizar">
+					              		<input type="submit" name="eliminar" value="Eliminar">
+					              	</div>
+	            				</form>
+
+	            			</table>
+
+
+
+
+					</div>
+
+				</div>
+				<div class="clear"></div>
+			</div>
+		</div>
+	</div>
+
+	<div class="clear"></div>
+
+	<footer>	
+		<div class="clear"></div>
+		<div class="izquierda">
+			<img src="../img/logo_ETSIIT.jpg">			
+		</div>
+		<div class="derecha">
+			<div id="mapa">
+				<a href="../php/mapaSitio.php">Mapa del Sitio</a>
+			</div>
+		</div>
+		<div id="creditos" class="centro">
+			<p>Realizado por:</p>
+			<ul>
+				<li><a href="gitdub.com/ainokila">Cristian Vélez Ruiz</a></li>
+				<li><a href="gitdub.com/saytes">Jorge Gutiérrez Segovia</a></li>
+			</ul>
+		</div>
+	</footer>
+
+</body>
+</html>
