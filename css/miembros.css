@@ -1,9 +1,9 @@
 #miembros{
 	margin: 40px;
-	background-color: #77E439;
-    
     color: #000817; 
     padding: 30px;
+	background: rgb(0, 0, 0,0.5);
+	box-shadow: 10px 10px 40px #888888;
 }
 
 .miembro .foto img{
@@ -11,9 +11,6 @@
 	margin-top: 25px;
 	float: left;
 	
-}
-
-.miembro .informacion{
 }
 
 .informacion table{
@@ -24,6 +21,7 @@
 
 .miembro{
 	background-color: #E6F1D1;
+	box-shadow: 10px 10px 40px #888888;
     padding-bottom: 10px;
     padding-top: 10px;
     padding-left: 10px;

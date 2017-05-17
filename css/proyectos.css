@@ -20,16 +20,17 @@ th, td{
     margin-right: 20px;  
     margin-left: 20px;  
     margin-bottom: 20px;  
-    background-color: #B5B7BA;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    background-color: #E6F1D1;
+    box-shadow: 10px 10px 40px #888888;
+    padding: 10px;
 }
 
 .proyecto{
     margin-top: 35px;  
     margin-bottom: 10px;
-    background-color: #DDDFE3;
+    background: rgb(0, 0, 0,0.5);
+    box-shadow: 10px 10px 40px #888888;
     color: #000817; 
-    padding-bottom: 5px; 
+    padding: 15px; 
 }
 /*************************FIN tabla******************************************/
