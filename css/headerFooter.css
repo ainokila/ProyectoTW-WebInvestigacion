@@ -1,23 +1,26 @@
-﻿.centro{
-	background-color: #F8FBFF;
-	color: #000103;
-}
-
-footer{
-	background-color: #DADDE0;
-	color: #000103;
-}
-
-footer{
-	background-color: #DADDE0;
-	color: #000103;
+﻿body{
+	margin: 0;  
+	background-color: #F8FBFF;  
 }
 
 /*************************INICIO header******************************************/
 
+header {
+	background-color: #DDDFE3;
+	color: #000817;
+    height: 80px;
+	text-align: center;
+	position: fixed;
+	width: 100%;
+	left: 0;
+	top: 0;
+	text-align: center;
+}
 
-.izquierda img {
+header .izquierda img {
 	width: 250px;
+	margin-top: 5px;
+	margin-left: 5px;
 }
 
 header .izquierda{
@@ -28,12 +31,12 @@ header .derecha{
 	float: right;
 }
 
-.clear{
-  	clear: both;
+header .centro{
+	display: inline-block;
 }
 
-#title{
-	margin-right: 430px;
+.clear{
+  	clear: both;
 }
 
 #login{
@@ -44,10 +47,17 @@ header .derecha{
 
 /************************************FIN header*****************************************/
 
-/*************************INICIO footer******************************************/
 
+/*************************INICIO footer******************************************/
 footer .izquierda img {
 	width: 150px;
+}
+
+footer{
+	background-color: #DDDFE3;
+	color: #000817;
+    height: 150px;
+	text-align: center;
 }
 
 footer .izquierda{
@@ -58,11 +68,30 @@ footer .derecha{
 	float: right;
 }
 
-#creditos{
-	margin-right: 430px;
+footer .centro{
+	display: inline-block;
+	margin-top: 15px;
 }
-
+	
 #mapa{
 	margin-right: 20px;
 	margin-top: 50px;
+}
+
+/*************************FIN footer******************************************/
+
+/*************************INICIO principal******************************************/
+
+.principal{
+	padding-top: 70px;
+}
+
+.principal-izq{
+	float: left;
+	width: 12%;
+}
+
+.principal-der{
+	float: right;
+	width: 88%;
 }
