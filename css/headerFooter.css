@@ -1,1 +1,64 @@
-﻿header 
+﻿*{
+	background-color: #F8FBFF;
+	color: #000103;
+}
+
+/*************************INICIO HEADER******************************************/
+
+header{
+	background: #E7E9ED;
+}
+
+header .izquierda img {
+	width: 250px;
+}
+
+header .izquierda{
+	float: left;
+}
+
+header .derecha{
+	float: right;
+}
+
+.clear{
+  	clear: both;
+}
+
+#title{
+	margin-right: 430px;
+}
+
+#login{
+	margin-right: 20px;
+}
+
+
+
+/************************************FIN HEADER*****************************************/
+
+/*************************INICIO FOOTER******************************************/
+
+footer{
+	background-color: #E7E9ED;
+}
+footer .izquierda img {
+	height: 150px;
+}
+
+footer .izquierda{
+	float: left;
+}
+
+footer .derecha{
+	float: right;
+}
+
+#creditos{
+	margin-right: 430px;
+}
+
+#mapa{
+	margin-right: 20px;
+	margin-top: 50px;
+}
