@@ -59,56 +59,45 @@
 						<form action="../php/aniadepublicacion.php" method="get">
 							<table border="0">
 				              <tr>
-				                <td>Código</td>
-				                <td><input type="text" name="codigo"></td>
+				                <td>DOI</td>
+				                <td><input type="text" name="doi"></td>
 				              </tr>
 
 				              <tr>
-				                <td>Título</td>
+				                <td>Título del trabajo</td>
 				                <td><input type="text" name="titulo"></td>
 				              </tr>
 
 				              <tr>
-				                <td>Descripción</td>
-				                <td><input type="large-text" name="descripción"></td>
+				                <td>Lista de autores</td>
+				                <td><input type="large-text" name="autores"></td>
 				              </tr>
 
 				              <tr>
-				                <td>Comienzo</td>
-				                <td><input type="date" name="comienzo"></td>
+				                <td>Fecha de publicación</td>
+				                <td><input type="date" name="fecha-publicacion"></td>
 				              </tr>
 
 				              <tr>
-				                <td>Finalización</td>
-				                <td><input type="date" name="finalizacion"></td>
+				                <td>Resumen del Artículo</td>
+				                <td><input type="large-text" name="resumen"></td>
 				              </tr>		
 
 				              <tr>
-				                <td>Entidades Colaboradoras</td>
-				                <td><input type="text" name="entidades"></td>
+				                <td>Palabras clave</td>
+				                <td><input type="text" name="palabras"></td>
 				              </tr>
 
 				              <tr>
-				                <td>Cuantía Concedida</td>
-				                <td><input type="number" name="cuantia"></td>
-				              </tr>
-
-
-				              <tr>
-				                <td>Investigador Principal</td>
-				                <td><input type="text" name="investigador"></td>
-				              </tr>
-
-				              <tr>
-				                <td>Investigadores Colaboradores</td>
-				                <td><input type="text" name="investigador-col"></td>
-				              </tr>
-
-				              <tr>
-				                <td>URL</td>
+				                <td>URL de Descargar</td>
 				                <td><input type="URL" name="url"></td>
 				              </tr>
 
+
+				              <tr>
+				                <td>Proyecto al que esta vinculado</td>
+				                <td><input type="text" name="proyecto-vinculado"></td>
+				              </tr>
 
 	            			</table>
             			</form>
@@ -124,57 +113,47 @@
 
 							<table border="0">
 				              <tr>
-				                <td>Código</td>
-				                <td>$codigo</td>
+				                <td>DOI</td>
+				                <td>$DOI</td>
 				              </tr>
 
 				              <tr>
-				                <td>Título</td>
-				                <td>$titulo</td>
+				                <td>Título del trabajo</td>
+				                <td>$Titulo</td>
 				              </tr>
 
 				              <tr>
-				                <td>Descripción</td>
-				                <td>$descripcion</td>
+				                <td>Lista de autores</td>
+				                <td>$Autores</td>
 				              </tr>
 
 				              <tr>
-				                <td>Comienzo</td>
-				                <td>$comienzo</td>
+				                <td>Fecha de publicación</td>
+				                <td>$Fecha-Publicacion</td>
 				              </tr>
 
 				              <tr>
-				                <td>Finalización</td>
-				                <td>$finalizacion</td>
+				                <td>Resumen del Artículo</td>
+				                <td>$Resumen</td>
 				              </tr>		
 
 				              <tr>
-				                <td>Entidades Colaboradoras</td>
-				                <td>$entidades</td>
+				                <td>Palabras clave</td>
+				                <td>$PalabrasClave</td>
 				              </tr>
 
 				              <tr>
-				                <td>Cuantía Concedida</td>
-				                <td>$cuantia euros</td>
+				                <td>URL de Descargar</td>
+				                <td>$URL</td>
 				              </tr>
 
 
 				              <tr>
-				                <td>Investigador Principal</td>
-				                <td>$investigador</td>
+				                <td>Proyecto al que esta vinculado</td>
+				                <td>$Proyecto-vinculado</td>
 				              </tr>
 
-				              <tr>
-				                <td>Investigadores Colaboradores</td>
-				                <td>$investigadores</td>
-				              </tr>
-
-				              <tr>
-				                <td>URL</td>
-				                <td>www.web.com</td>
-				              </tr>
-
-				              	<form action="../php/procesa-usuario.php" method="get">
+				              	<form action="../php/procesa-publicacion.php" method="get">
 	            					<div class="opcion">
 					              		<input type="submit" name="actualizar" value="Actualizar">
 					              		<input type="submit" name="eliminar" value="Eliminar">
