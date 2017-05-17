@@ -76,6 +76,7 @@ footer .centro{
 footer ul{
 	list-style: none;
 }
+
 #mapa{
 	margin-right: 20px;
 	margin-top: 50px;
@@ -104,11 +105,12 @@ footer ul{
 
 /*************************INICIO menu******************************************/
 
-#menu{	
+.menu{	
     margin-top: 35px;
+    margin-bottom: 30px;
 }
 
-#menu ul {
+.menu ul {
     list-style-type: none;
     margin: 0px;
     padding: 0px;
@@ -117,11 +119,11 @@ footer ul{
     font-size: 11pt;
 }
 
-#menu ul li {
+.menu ul li {
     background-color: #DDDFE3;
 }
 
-#menu ul li a {
+.menu ul li a {
     color: #000817;
     text-decoration: none;
     text-transform: uppercase;
@@ -129,8 +131,10 @@ footer ul{
     padding: 10px 10px 10px 20px;
 }
 
-#menu ul li a:hover {
+.menu ul li a:hover {
     background: #000;
     border-left: 10px solid #333;
     color: #fff;
 }
+
+/*************************FIN menu******************************************/
