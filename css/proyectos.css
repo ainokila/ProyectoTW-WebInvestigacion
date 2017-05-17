@@ -1,3 +1,35 @@
 ﻿/*************************INICIO tabla******************************************/
 
+table{  
+    margin-top: 15px;
+    border-collapse: collapse;
+    width: 90%;
+}
+
+table, th, td {
+    border: 1px solid black;
+}
+
+th, td{
+    padding: 7px;
+    text-align: left;
+}
+
+.proyecto ul {
+    list-style: none;
+    margin-right: 20px;  
+    margin-left: 20px;  
+    margin-bottom: 20px;  
+    background-color: #B5B7BA;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.proyecto{
+    margin-top: 35px;  
+    margin-bottom: 10px;
+    background-color: #DDDFE3;
+    color: #000817; 
+    padding-bottom: 5px; 
+}
 /*************************FIN tabla******************************************/
