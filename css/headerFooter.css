@@ -73,6 +73,9 @@ footer .centro{
 	margin-top: 15px;
 }
 	
+footer ul{
+	list-style: none;
+}
 #mapa{
 	margin-right: 20px;
 	margin-top: 50px;
@@ -88,10 +91,46 @@ footer .centro{
 
 .principal-izq{
 	float: left;
-	width: 12%;
+	width: 15%;
 }
 
 .principal-der{
 	float: right;
-	width: 88%;
+	width: 85%;
+}
+
+/*************************FIN principal******************************************/
+
+
+/*************************INICIO menu******************************************/
+
+#menu{	
+    margin-top: 35px;
+}
+
+#menu ul {
+    list-style-type: none;
+    margin: 0px;
+    padding: 0px;
+    width: 200px;
+    font-family: Arial, sans-serif;
+    font-size: 11pt;
+}
+
+#menu ul li {
+    background-color: #DDDFE3;
+}
+
+#menu ul li a {
+    color: #000817;
+    text-decoration: none;
+    text-transform: uppercase;
+    display: block;
+    padding: 10px 10px 10px 20px;
+}
+
+#menu ul li a:hover {
+    background: #000;
+    border-left: 10px solid #333;
+    color: #fff;
 }
