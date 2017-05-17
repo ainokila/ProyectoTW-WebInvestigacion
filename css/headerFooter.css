@@ -85,31 +85,12 @@ footer ul{
 
 /*************************FIN footer******************************************/
 
-/*************************INICIO principal******************************************/
-
-.principal{
-	padding-top: 70px;
-}
-
-.principal-izq{
-	float: left;
-	width: 15%;
-}
-
-.principal-der{
-	float: right;
-	width: 85%;
-}
-
-/*************************FIN principal******************************************/
-
-
 /*************************INICIO menu******************************************/
 
 #menu{	
     margin-top: 80px;
     position: fixed;
-	width: 100%;
+	width: 20%;
 	left: 0;
 	top: 0;
 }
