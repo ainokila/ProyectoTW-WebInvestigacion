@@ -38,8 +38,8 @@ function generaMenu(){
 				</ul>
 
 				<ul>
-					<li><a href="../php/publicar.php">Añadir publicación</a></li>
-					<li><a href="../php/aniadir-pro.php">Añadir proyecto</a></li>
+					<li><a href="../php/editar-publicacion.php">Añadir publicación</a></li>
+					<li><a href="../php/editar-proyectos.php">Añadir proyecto</a></li>
 				</ul>
 
 				<ul>
