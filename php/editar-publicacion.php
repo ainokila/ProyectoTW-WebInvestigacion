@@ -1,6 +1,10 @@
 <?php
+		include './include/sesion.php';
 		include '../plantillas/head-editar-publicacion.html';
-		include "../plantillas/cabecera-menu.html";
+
+		//include "../plantillas/cabecera-menu.html";
+		generaCabecera();
+		generaMenu();
 		
 
 ?>

@@ -1,6 +1,8 @@
 <?php
 		include '../plantillas/head-proyecto.html';
-		include "../plantillas/cabecera-menu.html";
+		//include "../plantillas/cabecera-menu.html";
+		generaCabecera();
+		generaMenu();
 		
 
 ?>

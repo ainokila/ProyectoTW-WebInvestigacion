@@ -1,8 +1,12 @@
 <?php
 
+		include './include/sesion.php';
 
 		include '../plantillas/head-miembros.html';
-		include "../plantillas/cabecera-menu.html";
+		//include "../plantillas/cabecera-menu.html";
+		
+		generaCabecera();
+		generaMenu();
 
 
 ?>
