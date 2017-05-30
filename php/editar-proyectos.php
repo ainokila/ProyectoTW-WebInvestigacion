@@ -1,6 +1,6 @@
 <?php
+		session_start();
 		include './include/sesion.php';
-
 		include '../plantillas/head-editar-proyectos.html';
 		//include "../plantillas/cabecera-menu.html";
 		generaCabecera();

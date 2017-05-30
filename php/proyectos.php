@@ -1,4 +1,5 @@
 <?php
+		session_start();
 		include './include/sesion.php';
 		include '../plantillas/head-proyecto.html';
 		//include "../plantillas/cabecera-menu.html";
