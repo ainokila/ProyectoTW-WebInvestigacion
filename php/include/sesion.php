@@ -5,6 +5,17 @@ function generaCabecera(){
 		$usuarioActual = $_SESSION["usuario"];
 		$privilegiosActuales = $_SESSION["privilegios"];
 
+		switch ($privilegiosActuales) {
+			case 0:
+				$privilegiosActuales = "Admin";
+				break;
+			case 1:
+				$privilegiosActuales = "User";
+				break;		
+			default:
+				$privilegiosActuales = "No registrado";
+				break;
+		}
 		echo <<<HTML
 
 		<header>
@@ -33,6 +44,7 @@ HTML;
 		</div>
 		<div class="derecha">
 			<div id="login">
+				<p>No registrado</p>
 				<p><a href="../php/iniciar-sesion.php">Iniciar Sesión</a></p>
 			</div>
 		</div>
@@ -157,7 +169,7 @@ function compruebaUsuarioPass($user, $pass,&$privilegios){
 
 
 	if(strcmp($user,$pass) === 0){
-		$privilegios = rand(0,2);
+		$privilegios = rand(0,1);
 		return true;
 	}
 	else{
