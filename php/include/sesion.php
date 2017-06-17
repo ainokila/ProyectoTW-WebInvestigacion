@@ -159,21 +159,57 @@ function validaUsuario(){
 				}
 				session_destroy();
 			}
-
-
 		}
 	}
 }
 
-function compruebaUsuarioPass($user, $pass,&$privilegios){
-
-
-	if(strcmp($user,$pass) === 0){
-		$privilegios = rand(0,1);
-		return true;
+function compruebaUsuarioPass($user, $pass, &$privilegios){
+	$bd = BD_conexion();
+	$table = BD_getUsuario($bd,$user);
+	if($table != false && $table!=null){
+		$password = $table[0];
+		if( $password["PASSWORD"] === $pass ){
+			$privilegios = 0;
+			return true;
+		}
+		else{
+			return false;
+		}		
 	}
-	else{
-		return false;
+	return false;
+}
+
+function BD_conexion(){
+	$db = mysqli_connect('127.0.0.1', 'root', 'root','proyectoinvestigacion');
+	if (!$db) {
+		echo "<p>Error de conexión</p>";
+		echo "<p>Código: ".mysqli_connect_errno()."</p>";
+		echo "<p>Mensaje: ".mysqli_connect_error()."</p>";
+	return false; 
 	}
+	// Establecer la codificación de los datos almacenados ("collation")
+	mysqli_set_charset($db,"utf8");
+	return $db;
+}
+
+// Desconexión de la BBDD
+function BD_desconexion($db) {
+	mysqli_close($db);
+}// Consulta para obtener listado de ciudades
+
+function BD_getUsuario($db, $user) {
+	$res = mysqli_query($db, "SELECT USUARIO,Nombre,PASSWORD FROM USUARIOS
+	WHERE USUARIO= '$user' ");
+	if ($res) { // Si no hay error
+		if (mysqli_num_rows($res)>0) { // Si hay alguna tupla de respuesta
+			$tabla = mysqli_fetch_all($res,MYSQLI_ASSOC);
+		} else { // No hay resultados para la consulta
+			$tabla = [];
+		}
+		mysqli_free_result($res); // Liberar memoria de la consulta
+	} else { // Error en la consulta
+		$tabla = false;
+	}
+return $tabla;
 }
 ?>

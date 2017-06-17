@@ -16,7 +16,7 @@
 		<div class="principal-der">
 			<div id="miembros">
 				<p>Contenido</p>
-				<p>Listado de mienbros del grupo</p>
+				<p>Listado de miembros del grupo</p>
 
 				<div class="miembro">
 					<div class="foto">
