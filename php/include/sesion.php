@@ -144,7 +144,7 @@ HTML;
 function validaUsuario(){
 	session_start();
 	if(!empty($_POST)){
-		if($_POST["usuario"]!=""&&$_POST["pass"]!=""){
+		if($_POST["usuario"]!=""&& $_POST["pass"]!=""){
 				$user = $_POST["usuario"];
 				$password = $_POST["pass"];
 			if(compruebaUsuarioPass($user, $password, $privilegios)){
@@ -167,9 +167,9 @@ function compruebaUsuarioPass($user, $pass, &$privilegios){
 	$bd = BD_conexion();
 	$table = BD_getUsuario($bd,$user);
 	if($table != false && $table!=null){
-		$password = $table[0];
-		if( $password["PASSWORD"] === $pass ){
-			$privilegios = 0;
+		$consulta = $table[0];
+		if( $consulta["password"] === $pass ){
+			$privilegios = $consulta["privilegios"] ;
 			return true;
 		}
 		else{
@@ -195,11 +195,11 @@ function BD_conexion(){
 // Desconexión de la BBDD
 function BD_desconexion($db) {
 	mysqli_close($db);
-}// Consulta para obtener listado de ciudades
+}
 
 function BD_getUsuario($db, $user) {
-	$res = mysqli_query($db, "SELECT USUARIO,Nombre,PASSWORD FROM USUARIOS
-	WHERE USUARIO= '$user' ");
+	$res = mysqli_query($db, "SELECT usuario,password,privilegios FROM miembros
+	WHERE usuario = '$user' ");
 	if ($res) { // Si no hay error
 		if (mysqli_num_rows($res)>0) { // Si hay alguna tupla de respuesta
 			$tabla = mysqli_fetch_all($res,MYSQLI_ASSOC);
@@ -211,5 +211,16 @@ function BD_getUsuario($db, $user) {
 		$tabla = false;
 	}
 return $tabla;
+}
+
+function BD_insertUsuario($db, $user, $pass , $nombre, $tipo, $direccion, $telefono, $email,$privilegios){
+	$res = mysqli_query($db, "INSERT INTO miembros(usuario,password	,nombre	,categoria,	direccion,	tel	,email, privilegios) VALUES('$user', '$pass', '$nombre', '$tipo', '$direccion', '$telefono', '$email', '$privilegios');");
+	if ($res) { // Si no hay error
+		return true;
+		mysqli_free_result($res); // Liberar memoria de la consulta
+	} else { // Error en la consulta
+		echo $res;
+		return false;
+	}
 }
 ?>

@@ -3,8 +3,10 @@ CREATE TABLE MIEMBROS(
     password varchar(30) not null ,
     nombre varchar(30) not null,
     categoria varchar(30) not null, 
+	direccion varchar(30) not null,
     tel varchar(12) not null,
-    email varchar(30) not null
+    email varchar(30) not null,
+	privilegios int not null default 2
 );
 
 CREATE TABLE PROYECTOS(
@@ -24,7 +26,7 @@ CREATE TABLE PUBLICACION(
     fechapub date not null, 
     resumen varchar(500) not null,
     palabras_clave varchar(100),
-    url varchar(100) not null
+    url varchar(100) not null,
     proyecto_vin varchar(30) not null,
     FOREIGN KEY (proyecto_vin) REFERENCES proyectos(codigo)
 );
@@ -44,3 +46,6 @@ CREATE TABLE compone(
     CONSTRAINT FK_USUARIO_ERROR FOREIGN KEY (usuario_miembro) REFERENCES miembros(usuario),
     PRIMARY KEY(codigo_pro,usuario_miembro)
 );
+
+INSERT INTO miembros( usuario, password, nombre, categoria, tel, email) 
+VALUES("saytes", "12345", "Jorge Gutierrez Segovia", "invitado", "670876090", "saytes@correo.ugr.es");
