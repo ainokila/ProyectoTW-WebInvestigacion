@@ -1,4 +1,4 @@
-CREATE TABLE MIEMBROS(
+CREATE TABLE IF NOT EXISTS MIEMBROS(
 	usuario varchar(30) not null PRIMARY KEY,
     password varchar(30) not null ,
     nombre varchar(30) not null,
@@ -9,7 +9,7 @@ CREATE TABLE MIEMBROS(
 	privilegios int not null default 2
 );
 
-CREATE TABLE PROYECTOS(
+CREATE TABLE IF NOT EXISTS PROYECTOS(
 	codigo varchar(30) not null PRIMARY KEY,
     titulo varchar(30) not null ,
     descripcion varchar(500) not null,
@@ -20,7 +20,7 @@ CREATE TABLE PROYECTOS(
     url varchar(100) not null
 );
 
-CREATE TABLE PUBLICACION(
+CREATE TABLE IF NOT EXISTS PUBLICACION(
 	doi varchar(30) not null PRIMARY KEY,
     titulo varchar(30) not null ,
     fechapub date not null, 
@@ -31,7 +31,7 @@ CREATE TABLE PUBLICACION(
     FOREIGN KEY (proyecto_vin) REFERENCES proyectos(codigo)
 );
 
-CREATE TABLE realizapub(
+CREATE TABLE IF NOT EXISTS realizapub(
     doi_pub varchar(30) not null,
     usuario_miembro varchar(30) not null,
     CONSTRAINT FK_DOI_ERROR FOREIGN KEY (doi_pub) REFERENCES publicacion(doi),
@@ -39,7 +39,7 @@ CREATE TABLE realizapub(
     PRIMARY KEY(doi_pub,usuario_miembro)
 );
 
-CREATE TABLE compone(
+CREATE TABLE IF NOT EXISTS compone(
     codigo_pro varchar(30) not null,
     usuario_miembro varchar(30) not null,
     CONSTRAINT FK_CODIGO_ERROR FOREIGN KEY (codigo_pro) REFERENCES proyectos(codigo),
@@ -47,5 +47,5 @@ CREATE TABLE compone(
     PRIMARY KEY(codigo_pro,usuario_miembro)
 );
 
-INSERT INTO miembros( usuario, password, nombre, categoria, tel, email) 
-VALUES("saytes", "12345", "Jorge Gutierrez Segovia", "invitado", "670876090", "saytes@correo.ugr.es");
+INSERT INTO miembros( usuario, password, nombre, categoria, tel, email,privilegios) 
+VALUES("admin", "12345", "Administrador", "invitado", "670876090", "admin@local.es","0");
