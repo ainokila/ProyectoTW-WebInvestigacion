@@ -1,3 +1,8 @@
+ CREATE DATABASE proyectoinvestigacion;
+
+ USE proyectoinvestigacion;
+
+
 CREATE TABLE IF NOT EXISTS MIEMBROS(
 	usuario varchar(30) not null PRIMARY KEY,
     password varchar(30) not null ,
