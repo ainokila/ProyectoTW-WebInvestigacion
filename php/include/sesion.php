@@ -180,7 +180,7 @@ function compruebaUsuarioPass($user, $pass, &$privilegios){
 }
 
 function BD_conexion(){
-	$db = mysqli_connect('192.168.0.5', 'root', 'root','proyectoinvestigacion');
+	$db = mysqli_connect('localhost', 'root', 'root','proyectoinvestigacion');
 	if (!$db) {
 		echo "<p>Error de conexión</p>";
 		echo "<p>Código: ".mysqli_connect_errno()."</p>";
@@ -257,6 +257,45 @@ function BD_getPublicaciones($db){
     $tabla = false;
   }
   return $tabla;
+}
+
+function BD_getPublicacion($db, $doi) {
+	$res = mysqli_query($db, "SELECT titulo,autores,DATE_FORMAT(fechapub, '%Y/%m/%d'),resumen,palabras_clave,url,proyecto_vin FROM publicacion
+	WHERE doi = '$doi' ");
+	if ($res) { // Si no hay error
+		if (mysqli_num_rows($res)>0) { // Si hay alguna tupla de respuesta
+			$tabla = mysqli_fetch_all($res,MYSQLI_ASSOC);
+		} else { // No hay resultados para la consulta
+			$tabla = [];
+		}
+		mysqli_free_result($res); // Liberar memoria de la consulta
+	} else { // Error en la consulta
+		$tabla = false;
+	}
+return $tabla;
+}
+
+function BD_updatePublicacion($db,$doi,$titulo,$autores,$fechapub,$resumen,$palabras_clave,$url,$proyecto_vin){
+	$res = mysqli_query($db, "UPDATE publicacion SET titulo = '$titulo', autores = '$autores', fechapub = '$fechapub', resumen = '$resumen',palabras_clave = '$palabras_clave',url = '$url',proyecto_vin = '$proyecto_vin' WHERE doi = '$doi' ");
+	if ($res) { // Si no hay error
+		return true;
+		mysqli_free_result($res); // Liberar memoria de la consulta
+	} else { // Error en la consulta
+		echo $res;
+		return false;
+	}
+}
+
+function BD_insertPublicacion($db,$doi,$titulo,$autores,$fechapub,$resumen,$palabras_clave,$url,$proyecto_vin){
+	$res = mysqli_query($db, "INSERT INTO publicacion(doi ,titulo,autores,fechapub,resumen,palabras_clave,url,proyecto_vin) VALUES('$doi','$titulo','$autores','$fechapub','$resumen','$palabras_clave','$url','$proyecto_vin');");
+
+	if ($res) { // Si no hay error
+		return true;
+		mysqli_free_result($res); // Liberar memoria de la consulta
+	} else { // Error en la consulta
+		echo $res;
+		return false;
+	}
 }
 
 function BD_insertUsuario($db, $user, $pass , $nombre, $tipo, $direccion, $telefono, $email,$privilegios){

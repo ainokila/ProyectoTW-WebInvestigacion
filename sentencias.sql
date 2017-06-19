@@ -60,3 +60,6 @@ VALUES("admin", "12345", "Administrador", "Administrador", "C/Jardines Nº13", "
     
 INSERT INTO proyectos(codigo,titulo,descripcion,comienzo,fin,entidades,cuantia,inv_principal,inv_secundarios,url)
 VALUES("1111", "Proyecto 1", "Un proyecto muy bonito.", "2017-06-19", "2017-06-19","Caixa","12345€", "Saytes","Compis de Saytes", "www.atiqueteimporta.com");
+
+INSERT INTO publicacion(doi,titulo,autores,fechapub,resumen,palabras_clave,url,proyecto_vin)
+ VALUES("11111", "Proyecto 1", "Cristian y Jorge.", "2017-06-19","Una publicación de mierda.","Mogollón de Palabras clave", "www.atiqueteimporta.com","1111");

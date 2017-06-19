@@ -8,8 +8,7 @@
 .miembro .foto img{
 	width: 130px;
 	margin-top: 25px;
-	float: left;
-	
+	float: left;	
 }
 
 .informacion table{
@@ -21,6 +20,7 @@
 .miembro{
 	background-color: #E6F1D1;
 	box-shadow: 10px 10px 40px #888888;
+	margin-bottom: 30px;
     padding-bottom: 10px;
     padding-top: 10px;
     padding-left: 10px;
