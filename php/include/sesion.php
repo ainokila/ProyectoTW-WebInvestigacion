@@ -196,37 +196,7 @@ function BD_conexion(){
 function BD_desconexion($db) {
 	mysqli_close($db);
 }
-
-function BD_getUsuario($db, $user) {
-	$res = mysqli_query($db, "SELECT usuario,password,privilegios FROM miembros
-	WHERE usuario = '$user' ");
-	if ($res) { // Si no hay error
-		if (mysqli_num_rows($res)>0) { // Si hay alguna tupla de respuesta
-			$tabla = mysqli_fetch_all($res,MYSQLI_ASSOC);
-		} else { // No hay resultados para la consulta
-			$tabla = [];
-		}
-		mysqli_free_result($res); // Liberar memoria de la consulta
-	} else { // Error en la consulta
-		$tabla = false;
-	}
-return $tabla;
-}
-
-function BD_getMiembros($db) {
-	$res = mysqli_query($db, "SELECT nombre,categoria,direccion,tel,email FROM miembros");
-	if ($res) { // Si no hay error
-		if (mysqli_num_rows($res)>0) { // Si hay alguna tupla de respuesta
-			$tabla = mysqli_fetch_all($res,MYSQLI_ASSOC);
-		} else { // No hay resultados para la consulta
-			$tabla = [];
-		}
-		mysqli_free_result($res); // Liberar memoria de la consulta
-	} else { // Error en la consulta
-		$tabla = false;
-	}
-return $tabla;
-}
+/*METODOS PROYECTOS*/
 
 function BD_getProyectos($db) {
 	$res = mysqli_query($db, "SELECT codigo,titulo,descripcion,DATE_FORMAT(comienzo, '%d/%m/%Y'),DATE_FORMAT(fin, '%d/%m/%Y'),entidades,cuantia,inv_principal,inv_secundarios,url FROM proyectos");
@@ -243,6 +213,57 @@ function BD_getProyectos($db) {
 return $tabla;
 }
 
+function BD_getProyecto($db,$codigo) {
+	$res = mysqli_query($db, "SELECT titulo,descripcion,comienzo, fin, entidades,cuantia,inv_principal,inv_secundarios,url FROM proyectos
+	WHERE codigo = '$codigo' ");
+	if ($res) { // Si no hay error
+		if (mysqli_num_rows($res)>0) { // Si hay alguna tupla de respuesta
+			$tabla = mysqli_fetch_all($res,MYSQLI_ASSOC);
+		} else { // No hay resultados para la consulta
+			$tabla = [];
+		}
+		mysqli_free_result($res); // Liberar memoria de la consulta
+	} else { // Error en la consulta
+		$tabla = false;
+	}
+return $tabla;
+}
+
+function BD_borrarProyecto($db,$codigo){
+	$res = mysqli_query($db, "DELETE FROM proyectos WHERE codigo = '$codigo'");
+	if ($res) { // Si no hay error
+		return true;
+		mysqli_free_result($res); // Liberar memoria de la consulta
+	} else { // Error en la consulta
+		echo $res;
+		return false;
+	}
+}
+
+function BD_updateProyecto($db,$codigo,$titulo,$descripcion,$comienzo,$fin,$entidades,$cuantia,$inv_principal,$inv_secundarios,$url){
+	$res = mysqli_query($db, "UPDATE proyectos SET titulo = '$titulo', descripcion = '$descripcion', comienzo = DATE_FORMAT('$comienzo', '%Y/%m/%d'), fin = DATE_FORMAT('$fin', '%Y/%m/%d'), entidades = '$entidades',cuantia = '$cuantia',inv_principal = '$inv_principal',inv_secundarios = '$inv_secundarios',url = '$url' WHERE codigo = '$codigo' ");
+	if ($res) { // Si no hay error
+		return true;
+		mysqli_free_result($res); // Liberar memoria de la consulta
+	} else { // Error en la consulta
+		echo $res;
+		return false;
+	}
+}
+
+function BD_insertarProyecto($db,$codigo,$titulo,$descripcion,$comienzo,$fin,$entidades,$cuantia,$inv_principal,$inv_secundarios,$url){
+	$res = mysqli_query($db, "INSERT INTO proyectos(codigo ,titulo,descripcion,comienzo,fin,entidades,cuantia,inv_principal,inv_secundarios,url) VALUES('$codigo','$titulo','$descripcion','$comienzo','$fin','$entidades','$cuantia','$inv_principal','$inv_secundarios','$url')");
+
+	if ($res) { // Si no hay error
+		return true;
+		mysqli_free_result($res); // Liberar memoria de la consulta
+	} else { // Error en la consulta
+		echo $res;
+		return false;
+	}
+}
+
+/*METODO PUBLICACION*/
 function BD_getPublicaciones($db){
 
   $res = mysqli_query($db, "SELECT doi,titulo,autores,DATE_FORMAT(fechapub, '%d/%m/%Y'),resumen,palabras_clave,url,proyecto_vin FROM publicacion");
@@ -309,6 +330,22 @@ function BD_insertPublicacion($db,$doi,$titulo,$autores,$fechapub,$resumen,$pala
 	}
 }
 
+function BD_getPublicacionConProye($db,$codigoProyecto){
+  $res = mysqli_query($db, "SELECT titulo FROM publicacion WHERE proyecto_vin = '$codigoProyecto' ");
+  if ($res) { // Si no hay error
+    if (mysqli_num_rows($res)>0) { // Si hay alguna tupla de respuesta
+      $tabla = mysqli_fetch_all($res,MYSQLI_ASSOC);
+    } else { // No hay resultados para la consulta
+      $tabla = [];
+    }
+    mysqli_free_result($res); // Liberar memoria de la consulta
+  } else { // Error en la consulta
+    $tabla = false;
+  }
+return $tabla;
+}
+
+/*METODOS MIEMBROS*/
 function BD_insertUsuario($db, $user, $pass , $nombre, $tipo, $direccion, $telefono, $email,$privilegios){
 	$res = mysqli_query($db, "INSERT INTO miembros(usuario,password	,nombre	,categoria,	direccion,	tel	,email, privilegios) VALUES('$user', '$pass', '$nombre', '$tipo', '$direccion', '$telefono', '$email', '$privilegios')");
 	if ($res) { // Si no hay error
@@ -318,5 +355,36 @@ function BD_insertUsuario($db, $user, $pass , $nombre, $tipo, $direccion, $telef
 		echo $res;
 		return false;
 	}
+}
+
+function BD_getUsuario($db, $user) {
+	$res = mysqli_query($db, "SELECT usuario,password,privilegios FROM miembros
+	WHERE usuario = '$user' ");
+	if ($res) { // Si no hay error
+		if (mysqli_num_rows($res)>0) { // Si hay alguna tupla de respuesta
+			$tabla = mysqli_fetch_all($res,MYSQLI_ASSOC);
+		} else { // No hay resultados para la consulta
+			$tabla = [];
+		}
+		mysqli_free_result($res); // Liberar memoria de la consulta
+	} else { // Error en la consulta
+		$tabla = false;
+	}
+return $tabla;
+}
+
+function BD_getMiembros($db) {
+	$res = mysqli_query($db, "SELECT nombre,categoria,direccion,tel,email FROM miembros");
+	if ($res) { // Si no hay error
+		if (mysqli_num_rows($res)>0) { // Si hay alguna tupla de respuesta
+			$tabla = mysqli_fetch_all($res,MYSQLI_ASSOC);
+		} else { // No hay resultados para la consulta
+			$tabla = [];
+		}
+		mysqli_free_result($res); // Liberar memoria de la consulta
+	} else { // Error en la consulta
+		$tabla = false;
+	}
+return $tabla;
 }
 ?>
