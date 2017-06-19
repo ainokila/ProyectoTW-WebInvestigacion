@@ -287,7 +287,7 @@ function BD_borrarPublicacion($db,$doi){
 }
 
 function BD_updatePublicacion($db,$doi,$titulo,$autores,$fechapub,$resumen,$palabras_clave,$url,$proyecto_vin){
-	$res = mysqli_query($db, "UPDATE publicacion SET titulo = '$titulo', autores = '$autores', fechapub = '$fechapub', resumen = '$resumen',palabras_clave = '$palabras_clave',url = '$url',proyecto_vin = '$proyecto_vin' WHERE doi = '$doi' ");
+	$res = mysqli_query($db, "UPDATE publicacion SET titulo = '$titulo', autores = '$autores', fechapub = DATE_FORMAT('$fechapub', '%Y/%m/%d'), resumen = '$resumen',palabras_clave = '$palabras_clave',url = '$url',proyecto_vin = '$proyecto_vin' WHERE doi = '$doi' ");
 	if ($res) { // Si no hay error
 		return true;
 		mysqli_free_result($res); // Liberar memoria de la consulta

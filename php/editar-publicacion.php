@@ -61,7 +61,7 @@
  
  				              <tr>
  				                <td>Fecha de publicación</td>
- 				                <td><input type="date" name="fecha-publicacion"></td>
+ 				                <td><input type="date" name="fechapub"></td>
  				              </tr>
  
  				              <tr>
@@ -105,7 +105,9 @@ HTML;
 				$doi = $_POST['id'];
 		    	$titulo = $_POST['titulo'];
 		    	$autores = $_POST['autores'];
-		    	$fechapub = $_POST['fechapub'];
+		    	echo "hola";
+		    	echo $_POST['fechapub'];
+		    	$fechapub = date('Y-m-d', strtotime($_POST['fechapub']));
 		    	$resumen = $_POST['resumen'];
 		    	$palabras_clave = $_POST['palabras_clave'];
 		    	$url = $_POST['url'];
@@ -161,7 +163,7 @@ HTML;
  
  				              <tr>
  				                <td>Fecha de publicación</td>
- 				                <td><input type="date" name="fecha-publicacion"></td>
+ 				                <td><input type="date" name="fechapub"></td>
  				              </tr>
  
  				              <tr>
