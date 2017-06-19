@@ -4,21 +4,21 @@
 
 
 CREATE TABLE IF NOT EXISTS MIEMBROS(
-	usuario varchar(30) not null PRIMARY KEY,
+    usuario varchar(30) not null PRIMARY KEY,
     password varchar(30) not null ,
     nombre varchar(30) not null,
-    categoria varchar(30) not null, 
-	direccion varchar(30) not null,
+    categoria varchar(30) not null,
+    direccion varchar(30) not null,
     tel varchar(12) not null,
     email varchar(30) not null,
-	privilegios int not null default 2
+    privilegios int not null default 2
 );
 
 CREATE TABLE IF NOT EXISTS PROYECTOS(
-	codigo varchar(30) not null PRIMARY KEY,
+	  codigo varchar(30) not null PRIMARY KEY,
     titulo varchar(30) not null ,
     descripcion varchar(500) not null,
-    comienzo date not null, 
+    comienzo date not null,
     fin date not null,
     entidades varchar(100),
     cuantia int not null,
@@ -26,9 +26,9 @@ CREATE TABLE IF NOT EXISTS PROYECTOS(
 );
 
 CREATE TABLE IF NOT EXISTS PUBLICACION(
-	doi varchar(30) not null PRIMARY KEY,
+    doi varchar(30) not null PRIMARY KEY,
     titulo varchar(30) not null ,
-    fechapub date not null, 
+    fechapub date not null,
     resumen varchar(500) not null,
     palabras_clave varchar(100),
     url varchar(100) not null,
@@ -52,5 +52,5 @@ CREATE TABLE IF NOT EXISTS compone(
     PRIMARY KEY(codigo_pro,usuario_miembro)
 );
 
-INSERT INTO miembros( usuario, password, nombre, categoria, tel, email,privilegios) 
-VALUES("admin", "12345", "Administrador", "invitado", "670876090", "admin@local.es","0");
+INSERT INTO miembros( usuario, password, nombre, categoria, ,direccion, tel, email,privilegios)
+VALUES("admin", "12345", "Administrador", "Administrador", "C/Jardines Nº13", "670876090", "admin@local.es","0");

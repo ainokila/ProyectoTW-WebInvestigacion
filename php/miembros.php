@@ -12,13 +12,26 @@
 
 ?>
 
-
 		<div class="principal-der">
 			<div id="miembros">
 				<p>Contenido</p>
 				<p>Listado de miembros del grupo</p>
 
-				<div class="miembro">
+<?php
+
+	$db = BD_conexion();
+	$tabla = BD_getMiembros($db);
+	BD_desconexion($db);
+	
+	foreach ($tabla as $valor) {
+    	$nombre = $valor["nombre"];
+    	$categoria = $valor["categoria"];
+    	$direccion = $valor["direccion"];
+    	$tel = $valor["tel"];
+    	$email = $valor["email"];
+
+echo <<< HTML
+    					<div class="miembro">
 					<div class="foto">
 						<img src="../img/perfil.jpg">
 					</div>
@@ -41,7 +54,7 @@
 			              </tr>
 			             <tr>
 			                <td>Telefono</td>
-			                <td>$telefono</td>
+			                <td>$tel</td>
 			              </tr>
 
 			              <tr>
@@ -56,43 +69,18 @@
 				</div>
 				<div class="clear"></div>
 
-				<div class="miembro">
-					<div class="foto">
-						<img src="../img/perfil.jpg">
-					</div>
+HTML;
 
-					<div class="informacion">
+	}
 
-						<table border="0">
-			              <tr>
-			                <td>Nombre</td>
-			                <td>$nombre</td>
-			              </tr>
-			             <tr>
-			                <td>Categoría</td>
-			                <td>$categoria</td>
-			              </tr>
-			              
-			              <tr>
-			                <td>Dirección</td>
-			                <td>$direccion</td>
-			              </tr>
-			             <tr>
-			                <td>Telefono</td>
-			                <td>$telefono</td>
-			              </tr>
 
-			              <tr>
-			                <td>Email</td>
-			                <td>$email</td>
-			              </tr>
+?>
 
-            			</table>
 
-					</div>
 
-				</div>
-				<div class="clear"></div>
+
+
+				
 			</div>
 		</div>
 	</div>
