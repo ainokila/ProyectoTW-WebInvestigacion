@@ -107,6 +107,8 @@ HTML;
 				$doi = $_POST['id'];
 		    	$titulo = $_POST['titulo'];
 		    	$autores = $_POST['autores'];
+		    	echo "hola";
+		    	echo $_POST['fechapub'];
 		    	$fechapub = date('Y-m-d', strtotime($_POST['fechapub']));
 		    	$resumen = $_POST['resumen'];
 		    	$palabras_clave = $_POST['palabras_clave'];

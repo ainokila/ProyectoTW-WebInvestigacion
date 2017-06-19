@@ -9,12 +9,29 @@
 ?>
 	<div class="principal-der">
 			<div class="login">
-				<form action="./iniciar-sesion.php" method="post">
-					<label>Usuario: </label>
-					<input type="text" name="usuario"> <br>
-					<label>Contraseña: </label>
-					<input type="password" name="pass"> <br>
-					<input type="submit" name="login" value = "Login">
+								<form class="form-horizontal" action="./registro.php" method="post">
+
+
+
+					<div class="form-group">
+				      <label class="control-label col-sm-2" for="email">Usuario:</label>
+				      <div class="col-sm-10">
+				        <input type="text" class="form-control" id="usuario" placeholder="Introduza usuario" name="usuario">
+				      </div>
+				    </div>
+
+				    <div class="form-group">
+				      <label class="control-label col-sm-2" for="pwd">Password:</label>
+				      <div class="col-sm-10">          
+				        <input type="password" class="form-control" id="pwd" placeholder="Introduza contraseña" name="pass">
+				      </div>
+				    </div>
+				    <div class="form-group">        
+				      <div class="col-sm-offset-2 col-sm-10">
+				        <button type="submit" name="login" value="Login" class="btn btn-default">Login</button>
+				      </div>
+				    </div>
+
 				</form>
 			</div>
 		</div>

@@ -15,7 +15,7 @@ th, td{
     text-align: left;
 }
 
-.login ul {
+.login{
     list-style: none;
     margin-right: 20px;  
     margin-left: 20px;  
@@ -23,22 +23,17 @@ th, td{
     background-color: #E6F1D1;
     box-shadow: 10px 10px 40px #888888;
     padding: 10px;
-}
-
-.login{
+    border:30px;
     position: absolute;
-    left: 50%;
     -webkit-transform: translateX(-50%);
     -moz-transform: translateX(-50%);
     -ms-transform: translateX(-50%);
     -o-transform: translateX(-50%);
     transform: translateX(-50%);
-    margin-top: 35px;  
-    margin-bottom: 10px;
-    box-shadow: 10px 10px 40px #888888;
-    color: #000817; 
-    padding: 15px; 
-    border-bottom: 60%;
+    margin-top: 50px;
+    margin-left: 40%;
+    width: 50%;
+
 }
 
 footer{
