@@ -260,7 +260,7 @@ function BD_getPublicaciones($db){
 }
 
 function BD_getPublicacion($db, $doi) {
-	$res = mysqli_query($db, "SELECT titulo,autores,DATE_FORMAT(fechapub, '%Y/%m/%d'),resumen,palabras_clave,url,proyecto_vin FROM publicacion
+	$res = mysqli_query($db, "SELECT titulo,autores,fechapub,resumen,palabras_clave,url,proyecto_vin FROM publicacion
 	WHERE doi = '$doi' ");
 	if ($res) { // Si no hay error
 		if (mysqli_num_rows($res)>0) { // Si hay alguna tupla de respuesta

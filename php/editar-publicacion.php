@@ -25,6 +25,7 @@
 				$consulta = $tabla[0];
 		    	$doi = $_POST['id'];
 		    	$titulo = $consulta["titulo"];
+		    	$fechapub = $consulta["fechapub"];
 		    	$autores = $consulta["autores"];
 		    	$resumen = $consulta["resumen"];
 		    	$palabras_clave = $consulta["palabras_clave"];
@@ -61,7 +62,7 @@
  
  				              <tr>
  				                <td>Fecha de publicación</td>
- 				                <td><input type="date" name="fechapub"></td>
+ 				                <td><input type="date" name="fechapub" value="$fechapub"></td>
  				              </tr>
  
  				              <tr>
@@ -88,6 +89,7 @@
 	            					<div class="opcion">
 	            						<input type='hidden' name='id' value="$doi">
 					              		<input type="submit" name="accion" value="Sobreescribir">
+					              		<input type="submit" name="accion" value="Cancelar">
 					              	</div>
 					              	</div>
 	            				</form>
@@ -117,6 +119,10 @@ HTML;
 				header('Location: ../php/editar-publicacion.php');
 				break;
 
+			case 'Cancelar':
+				header('Location: ../php/editar-publicacion.php');
+				break;
+			
 			case 'Crear':
 				$db = BD_conexion();
 				$doi = $_POST['doi'];
