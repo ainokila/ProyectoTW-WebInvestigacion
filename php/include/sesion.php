@@ -358,7 +358,7 @@ function BD_insertUsuario($db, $user, $pass , $nombre, $tipo, $direccion, $telef
 }
 
 function BD_getUsuario($db, $user) {
-	$res = mysqli_query($db, "SELECT usuario,password,privilegios FROM miembros
+	$res = mysqli_query($db, "SELECT usuario, password, nombre,categoria,direccion,tel,email,privilegios FROM miembros
 	WHERE usuario = '$user' ");
 	if ($res) { // Si no hay error
 		if (mysqli_num_rows($res)>0) { // Si hay alguna tupla de respuesta
@@ -374,7 +374,7 @@ return $tabla;
 }
 
 function BD_getMiembros($db) {
-	$res = mysqli_query($db, "SELECT nombre,categoria,direccion,tel,email FROM miembros");
+	$res = mysqli_query($db, "SELECT usuario, nombre,categoria,direccion,tel,email FROM miembros");
 	if ($res) { // Si no hay error
 		if (mysqli_num_rows($res)>0) { // Si hay alguna tupla de respuesta
 			$tabla = mysqli_fetch_all($res,MYSQLI_ASSOC);
@@ -386,5 +386,27 @@ function BD_getMiembros($db) {
 		$tabla = false;
 	}
 return $tabla;
+}
+
+function BD_borrarMiembro($db,$user){
+	$res = mysqli_query($db, "DELETE FROM miembros WHERE usuario = '$user'");
+	if ($res) { // Si no hay error
+		return true;
+		mysqli_free_result($res); // Liberar memoria de la consulta
+	} else { // Error en la consulta
+		echo $res;
+		return false;
+	}
+}
+
+function BD_updateMiembro($db,$usuario,$nombre,$categoria,$direccion,$tel,$email,$privilegios){
+	$res = mysqli_query($db, "UPDATE miembros SET nombre = '$nombre', categoria = '$categoria', direccion ='$direccion', tel = '$tel',email = '$email',privilegios = '$privilegios' WHERE usuario = '$usuario' ");
+	if ($res) { // Si no hay error
+		return true;
+		mysqli_free_result($res); // Liberar memoria de la consulta
+	} else { // Error en la consulta
+		echo $res;
+		return false;
+	}
 }
 ?>
