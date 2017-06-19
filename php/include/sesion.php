@@ -180,7 +180,7 @@ function compruebaUsuarioPass($user, $pass, &$privilegios){
 }
 
 function BD_conexion(){
-	$db = mysqli_connect('192.168.0.5', 'root', 'root','proyectoinvestigacion');
+	$db = mysqli_connect('localhost', 'root', 'root','proyectoinvestigacion');
 	if (!$db) {
 		echo "<p>Error de conexión</p>";
 		echo "<p>Código: ".mysqli_connect_errno()."</p>";
@@ -226,6 +226,37 @@ function BD_getMiembros($db) {
 		$tabla = false;
 	}
 return $tabla;
+}
+
+function BD_getProyectos($db) {
+	$res = mysqli_query($db, "SELECT codigo,titulo,descripcion,DATE_FORMAT(comienzo, '%d/%m/%Y'),DATE_FORMAT(fin, '%d/%m/%Y'),entidades,cuantia,inv_principal,inv_secundarios,url FROM proyectos");
+	if ($res) { // Si no hay error
+		if (mysqli_num_rows($res)>0) { // Si hay alguna tupla de respuesta
+			$tabla = mysqli_fetch_all($res,MYSQLI_ASSOC);
+		} else { // No hay resultados para la consulta
+			$tabla = [];
+		}
+		mysqli_free_result($res); // Liberar memoria de la consulta
+	} else { // Error en la consulta
+		$tabla = false;
+	}
+return $tabla;
+}
+
+function BD_getPublicaciones($db){
+
+  $res = mysqli_query($db, "SELECT doi,titulo,autores,fechapub,resumen,palabras_clave,url,proyecto_vin FROM publicacion");
+  if ($res) { // Si no hay error
+    if (mysqli_num_rows($res)>0) { // Si hay alguna tupla de respuesta
+      $tabla = mysqli_fetch_all($res,MYSQLI_ASSOC);
+    } else { // No hay resultados para la consulta
+      $tabla = [];
+    }
+    mysqli_free_result($res); // Liberar memoria de la consulta
+  } else { // Error en la consulta
+    $tabla = false;
+  }
+  return $tabla;
 }
 
 function BD_insertUsuario($db, $user, $pass , $nombre, $tipo, $direccion, $telefono, $email,$privilegios){

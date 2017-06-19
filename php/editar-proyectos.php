@@ -78,18 +78,31 @@
 
 				</div>
 				<div class="clear"></div>
+<?php
 
+	$db = BD_conexion();
+	$tabla = BD_getProyectos($db);
+	BD_desconexion($db);
+	
+	foreach ((array) $tabla as $valor) {
+    	$codigo = $valor["codigo"];
+    	$titulo = $valor["titulo"];
+    	$descripcion = $valor["descripcion"];
+    	$comienzo = $valor["DATE_FORMAT(comienzo, '%d/%m/%Y')"];
+    	$finalizacion = $valor["DATE_FORMAT(fin, '%d/%m/%Y')"];
+    	$entidades = $valor["entidades"];
+    	$cuantiaeuros = $valor["cuantia"];
+    	$investigador = $valor["inv_principal"];
+    	$investigadores = $valor["inv_secundarios"];
+    	$url = $valor["url"];
+
+echo <<< HTML
 				<div class="proyecto">
-					<p>Proyecto NºXXXX</p>
+					<p>Proyecto Nº$codigo</p>
 
 					<div class="informacion">
 
 							<table border="0">
-				              <tr>
-				                <td>Código</td>
-				                <td>$codigo</td>
-				              </tr>
-
 				              <tr>
 				                <td>Título</td>
 				                <td>$titulo</td>
@@ -117,7 +130,7 @@
 
 				              <tr>
 				                <td>Cuantía Concedida</td>
-				                <td>$cuantia euros</td>
+				                <td>$cuantiaeuros</td>
 				              </tr>
 
 
@@ -133,7 +146,7 @@
 
 				              <tr>
 				                <td>URL</td>
-				                <td>www.web.com</td>
+				                <td>$url</td>
 				              </tr>
 
 				              	<form action="../php/procesa-usuario.php" method="get">
@@ -144,18 +157,18 @@
 	            				</form>
 
 	            			</table>
-
-
-
-
 					</div>
+				</div>
 
-			</div>
 				<div class="clear"></div>
+
+HTML;
+	}
+?>
+				</div>
 			</div>
 		</div>
-	</div>
+
 <?php
 	include "../plantillas/footer.html";
-
 ?>
