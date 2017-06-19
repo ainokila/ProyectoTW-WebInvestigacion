@@ -9,6 +9,19 @@
 		
 
 ?>
+<?php
+	if (isset($_POST['accion']) && isset($_POST['id'])) {
+		switch ($_POST['accion']) {
+			case 'Eliminar': // Presentar formulario y pedir confirmación
+				$accion = 'Eliminar';							
+				$db = BD_conexion();
+				echo "tengo la base";
+				BD_borrarPublicacion($db,$_POST['id']);
+				BD_desconexion($db);
+				break;
+		}
+	}
+?>
 		<div class="principal-der">
 			<div id="publicaciones">
 				<p>Contenido</p>
@@ -71,8 +84,12 @@
   				                <td>URL</td>
   				                <td><input type="URL" name="url"></td>
   				              </tr>
-
-
+				              	<form action="../php/procesa-publicacion.php" method="get">
+	            					<div class="opcion">
+					              		<input type="submit" name="guardar" value="Guardar">
+					              	</div>
+					              	</div>
+	            				</form>
 	            			</table>
             			</form>
 					</div>
@@ -140,10 +157,11 @@ echo <<< HTML
 				                <td>$proyecto_vin</td>
 				              </tr>
 
-				              	<form action="../php/procesa-publicacion.php" method="get">
+				              	<form action="../php/editar-publicacion.php" method="post">
 	            					<div class="opcion">
-					              		<input type="submit" name="actualizar" value="Actualizar">
-					              		<input type="submit" name="eliminar" value="Eliminar">
+	            						<input type='hidden' name='id' value="$doi">
+					              		<input type="submit" name="accion" value="Actualizar">
+					              		<input type="submit" name="accion" value="Eliminar">
 					              	</div>
 					              	</div>
 	            				</form>
@@ -153,7 +171,6 @@ echo <<< HTML
 				</div>
 
 				<div class="clear"></div>
-
 HTML;
 	}
 ?>
