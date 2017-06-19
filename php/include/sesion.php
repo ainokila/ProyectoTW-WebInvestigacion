@@ -29,7 +29,7 @@ function generaCabecera(){
 			</div>
 		</div>
 		<div id="title" class="centro">
-			<h1>Titulo Proyecto</h1>
+			<h1>TW Investigación</h1>
 		</div>
 		</header>
 		<div class="clear"></div>
@@ -49,7 +49,7 @@ HTML;
 			</div>
 		</div>
 		<div id="title" class="centro">
-			<h1>Titulo Proyecto</h1>
+			<h1>TW Investigación</h1>
 		</div>
 		</header>
 		<div class="clear"></div>
