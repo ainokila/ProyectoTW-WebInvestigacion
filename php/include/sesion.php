@@ -180,7 +180,7 @@ function compruebaUsuarioPass($user, $pass, &$privilegios){
 }
 
 function BD_conexion(){
-	$db = mysqli_connect('localhost', 'root', 'root','proyectoinvestigacion');
+	$db = mysqli_connect('192.168.0.5', 'root', 'root','proyectoinvestigacion');
 	if (!$db) {
 		echo "<p>Error de conexión</p>";
 		echo "<p>Código: ".mysqli_connect_errno()."</p>";
