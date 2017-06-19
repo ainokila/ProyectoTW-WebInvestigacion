@@ -5,7 +5,7 @@
 
 CREATE TABLE IF NOT EXISTS MIEMBROS(
     usuario varchar(30) not null PRIMARY KEY,
-    password varchar(30) not null ,
+    password varchar(100) not null ,
     nombre varchar(30) not null,
     categoria varchar(30) not null,
     direccion varchar(30) not null,
@@ -56,8 +56,8 @@ CREATE TABLE IF NOT EXISTS compone(
 );
 
 INSERT INTO miembros( usuario, password, nombre, categoria,direccion, tel, email,privilegios)
-VALUES("admin", "12345", "Administrador", "Administrador", "C/Jardines Nº13", "670876090", "admin@local.es","0");
-    
+VALUES("admin", "8cb2237d0679ca88db6464eac60da96345513964", "Administrador", "Administrador", "C/Jardines Nº13", "670876090", "admin@local.es","0");
+
 INSERT INTO proyectos(codigo,titulo,descripcion,comienzo,fin,entidades,cuantia,inv_principal,inv_secundarios,url)
 VALUES("1111", "Proyecto 1", "Un proyecto muy bonito.", "2017-06-19", "2017-06-19","Caixa","12345€", "Saytes","Compis de Saytes", "www.atiqueteimporta.com");
 

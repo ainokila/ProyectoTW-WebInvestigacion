@@ -147,6 +147,7 @@ function validaUsuario(){
 		if($_POST["usuario"]!=""&& $_POST["pass"]!=""){
 				$user = $_POST["usuario"];
 				$password = $_POST["pass"];
+				echo sha1($password);
 			if(compruebaUsuarioPass($user, $password, $privilegios)){
 				$_SESSION["usuario"] = $user;
 				$_SESSION["privilegios"] = $privilegios;
@@ -168,7 +169,8 @@ function compruebaUsuarioPass($user, $pass, &$privilegios){
 	$table = BD_getUsuario($bd,$user);
 	if($table != false && $table!=null){
 		$consulta = $table[0];
-		if( $consulta["password"] === $pass ){
+		if( $consulta["password"] === sha1($pass) ){
+			echo sha1($pass);
 			$privilegios = $consulta["privilegios"] ;
 			return true;
 		}
@@ -347,6 +349,7 @@ return $tabla;
 
 /*METODOS MIEMBROS*/
 function BD_insertUsuario($db, $user, $pass , $nombre, $tipo, $direccion, $telefono, $email,$privilegios){
+	$pass = sha1($pass);
 	$res = mysqli_query($db, "INSERT INTO miembros(usuario,password	,nombre	,categoria,	direccion,	tel	,email, privilegios) VALUES('$user', '$pass', '$nombre', '$tipo', '$direccion', '$telefono', '$email', '$privilegios')");
 	if ($res) { // Si no hay error
 		return true;
