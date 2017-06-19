@@ -275,6 +275,17 @@ function BD_getPublicacion($db, $doi) {
 return $tabla;
 }
 
+function BD_borrarPublicacion($db,$doi){
+	$res = mysqli_query($db, "DELETE FROM publicacion WHERE doi = '$doi'");
+	if ($res) { // Si no hay error
+		return true;
+		mysqli_free_result($res); // Liberar memoria de la consulta
+	} else { // Error en la consulta
+		echo $res;
+		return false;
+	}
+}
+
 function BD_updatePublicacion($db,$doi,$titulo,$autores,$fechapub,$resumen,$palabras_clave,$url,$proyecto_vin){
 	$res = mysqli_query($db, "UPDATE publicacion SET titulo = '$titulo', autores = '$autores', fechapub = '$fechapub', resumen = '$resumen',palabras_clave = '$palabras_clave',url = '$url',proyecto_vin = '$proyecto_vin' WHERE doi = '$doi' ");
 	if ($res) { // Si no hay error
@@ -287,7 +298,7 @@ function BD_updatePublicacion($db,$doi,$titulo,$autores,$fechapub,$resumen,$pala
 }
 
 function BD_insertPublicacion($db,$doi,$titulo,$autores,$fechapub,$resumen,$palabras_clave,$url,$proyecto_vin){
-	$res = mysqli_query($db, "INSERT INTO publicacion(doi ,titulo,autores,fechapub,resumen,palabras_clave,url,proyecto_vin) VALUES('$doi','$titulo','$autores','$fechapub','$resumen','$palabras_clave','$url','$proyecto_vin');");
+	$res = mysqli_query($db, "INSERT INTO publicacion(doi ,titulo,autores,fechapub,resumen,palabras_clave,url,proyecto_vin) VALUES('$doi','$titulo','$autores','$fechapub','$resumen','$palabras_clave','$url','$proyecto_vin')");
 
 	if ($res) { // Si no hay error
 		return true;
@@ -299,7 +310,7 @@ function BD_insertPublicacion($db,$doi,$titulo,$autores,$fechapub,$resumen,$pala
 }
 
 function BD_insertUsuario($db, $user, $pass , $nombre, $tipo, $direccion, $telefono, $email,$privilegios){
-	$res = mysqli_query($db, "INSERT INTO miembros(usuario,password	,nombre	,categoria,	direccion,	tel	,email, privilegios) VALUES('$user', '$pass', '$nombre', '$tipo', '$direccion', '$telefono', '$email', '$privilegios');");
+	$res = mysqli_query($db, "INSERT INTO miembros(usuario,password	,nombre	,categoria,	direccion,	tel	,email, privilegios) VALUES('$user', '$pass', '$nombre', '$tipo', '$direccion', '$telefono', '$email', '$privilegios')");
 	if ($res) { // Si no hay error
 		return true;
 		mysqli_free_result($res); // Liberar memoria de la consulta

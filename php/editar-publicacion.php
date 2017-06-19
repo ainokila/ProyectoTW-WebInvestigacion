@@ -17,6 +17,7 @@
 				$db = BD_conexion();
 				BD_borrarPublicacion($db,$_POST['id']);
 				BD_desconexion($db);
+				header('Location: ../php/editar-publicacion.php');
 				break;
 			case 'Actualizar':													
 				$db = BD_conexion();
