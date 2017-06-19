@@ -64,8 +64,21 @@
 
 				</div>
 				<div class="clear"></div>
+<?php
 
-				<div class="miembro">
+	$db = BD_conexion();
+	$tabla = BD_getMiembros($db);
+	BD_desconexion($db);
+	
+	foreach ($tabla as $valor) {
+    	$nombre = $valor["nombre"];
+    	$categoria = $valor["categoria"];
+    	$direccion = $valor["direccion"];
+    	$tel = $valor["tel"];
+    	$email = $valor["email"];
+
+echo <<< HTML
+    					<div class="miembro">
 					<div class="foto">
 						<img src="../img/perfil.jpg">
 					</div>
@@ -88,7 +101,7 @@
 			              </tr>
 			             <tr>
 			                <td>Telefono</td>
-			                <td>$telefono</td>
+			                <td>$tel</td>
 			              </tr>
 
 			              <tr>
@@ -105,12 +118,17 @@
 
             			</table>
 
-
-
 					</div>
 
 				</div>
 				<div class="clear"></div>
+
+HTML;
+
+	}
+
+
+?>				
 			</div>
 		</div>
 	</div>
