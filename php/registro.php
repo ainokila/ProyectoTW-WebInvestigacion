@@ -20,10 +20,10 @@
 					<input type="text" name="nombre"> <br>
 					<label>Categoría: </label>
 					<select name="tipo">
-	            		<option selected value="invitado">Invitado</option>
-                		<option value="catedratico">Catedratico</option>
-                		<option value="titular">Titular</option>
-                		<option value="investigador">Investigador</option>
+	            		<option selected value="Invitado">Invitado</option>
+                		<option value="Catedratico">Catedratico</option>
+                		<option value="Titular">Titular</option>
+                		<option value="Investigador">Investigador</option>
                 	</select></br>
 					<label>Dirección: </label>
 					<input type="text" name="direccion"> <br>
