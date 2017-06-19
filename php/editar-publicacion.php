@@ -27,7 +27,7 @@
     	$doi = $valor["doi"];
     	$titulo = $valor["titulo"];
     	$autores = $valor["autores"];
-    	$fechapub = $valor["fechapub"];
+    	$fechapub = $valor["DATE_FORMAT(fechapub, '%d/%m/%Y')"];
     	$resumen = $valor["resumen"];
     	$palabras_clave = $valor["palabras_clave"];
     	$url = $valor["url"];

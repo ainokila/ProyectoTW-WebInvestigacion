@@ -245,7 +245,7 @@ return $tabla;
 
 function BD_getPublicaciones($db){
 
-  $res = mysqli_query($db, "SELECT doi,titulo,autores,fechapub,resumen,palabras_clave,url,proyecto_vin FROM publicacion");
+  $res = mysqli_query($db, "SELECT doi,titulo,autores,DATE_FORMAT(fechapub, '%d/%m/%Y'),resumen,palabras_clave,url,proyecto_vin FROM publicacion");
   if ($res) { // Si no hay error
     if (mysqli_num_rows($res)>0) { // Si hay alguna tupla de respuesta
       $tabla = mysqli_fetch_all($res,MYSQLI_ASSOC);
