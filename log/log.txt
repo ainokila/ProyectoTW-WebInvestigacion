@@ -28,3 +28,4 @@
 [2017-06-20 13:11:59.000000]  Accion: Insert proyect prueba
 [2017-06-20 17:18:21.000000]  Accion: admin falla inicia sesion
 [2017-06-20 17:18:37.000000]  Accion: admin inicia sesion
+[2017-06-20 17:27:34.000000]  Accion: admin inicia sesion

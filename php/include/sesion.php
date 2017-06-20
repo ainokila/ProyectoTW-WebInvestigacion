@@ -104,6 +104,7 @@ function generaMenu(){
 						<ul>
 							<li><a href="../php/editar-usuarios.php">Editar usuarios</a></li>
 							<li><a href="../php/log.php">Ver log</a></li>
+							<li><a href="../php/backup.php">Backup</a></li>
 						</ul>
 					</div>
 				</div>
