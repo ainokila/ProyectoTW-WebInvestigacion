@@ -174,7 +174,6 @@ function compruebaUsuarioPass($user, $pass, &$privilegios){
 	if($table != false && $table!=null){
 		$consulta = $table[0];
 		if( $consulta["password"] === sha1($pass) ){
-			echo sha1($pass);
 			$privilegios = $consulta["privilegios"] ;
 			return true;
 		}
@@ -186,11 +185,6 @@ function compruebaUsuarioPass($user, $pass, &$privilegios){
 }
 
 function BD_conexion(){
-
-	echo constant("IP");
-	echo constant("NAME_BD");
-	echo constant("USER_BD");
-	echo constant("PASS_BD");
 
 	$db = mysqli_connect(constant("IP"),  constant("USER_BD"), constant("PASS_BD"),constant("NAME_BD"));
 	if (!$db) {
