@@ -412,4 +412,83 @@ function BD_updateMiembro($db,$usuario,$nombre,$categoria,$direccion,$tel,$email
 		return false;
 	}
 }
+
+
+function BD_creaBaseDatos($db,$user){
+	$res = mysqli_query($db, "CREATE TABLE IF NOT EXISTS MIEMBROS(
+    usuario varchar(30) not null PRIMARY KEY,
+    password varchar(100) not null ,
+    nombre varchar(30) not null,
+    categoria varchar(30) not null,
+    direccion varchar(30) not null,
+    tel varchar(12) not null,
+    email varchar(30) not null,
+    privilegios int not null default 2
+)");
+	if ($res) { // Si no hay error
+		mysqli_free_result($res); // Liberar memoria de la consulta
+	} else { // Error en la consulta
+		return false;
+	}
+
+	$res = mysqli_query($db, "CREATE TABLE IF NOT EXISTS PROYECTOS(
+    codigo varchar(30) not null PRIMARY KEY,
+    titulo varchar(30) not null ,
+    descripcion varchar(500) not null,
+    comienzo date not null,
+    fin date not null,
+    entidades varchar(100),
+    cuantia int not null,
+    inv_principal varchar(200) not null,
+    inv_secundarios varchar(400) not null,
+    url varchar(100) not null
+)");
+	if ($res) { // Si no hay error
+		mysqli_free_result($res); // Liberar memoria de la consulta
+	} else { // Error en la consulta
+		return false;
+	}
+	$res = mysqli_query($db, "CREATE TABLE IF NOT EXISTS PUBLICACION(
+    doi varchar(30) not null PRIMARY KEY,
+    titulo varchar(30) not null ,
+    autores varchar(200) not null,
+    fechapub date not null,
+    resumen varchar(500) not null,
+    palabras_clave varchar(100),
+    url varchar(100) not null,
+    proyecto_vin varchar(30) not null,
+    FOREIGN KEY (proyecto_vin) REFERENCES proyectos(codigo)
+)");
+	if ($res) { // Si no hay error
+		mysqli_free_result($res); // Liberar memoria de la consulta
+	} else { // Error en la consulta
+		return false;
+	}
+	$res = mysqli_query($db, "CREATE TABLE IF NOT EXISTS realizapub(
+    doi_pub varchar(30) not null,
+    usuario_miembro varchar(30) not null,
+    CONSTRAINT FK_DOI_ERROR FOREIGN KEY (doi_pub) REFERENCES publicacion(doi),
+    CONSTRAINT FK_NOMBRE_ERROR FOREIGN KEY (usuario_miembro) REFERENCES miembros(usuario),
+    PRIMARY KEY(doi_pub,usuario_miembro)
+)");
+	if ($res) { // Si no hay error
+		mysqli_free_result($res); // Liberar memoria de la consulta
+	} else { // Error en la consulta
+		return false;
+	}
+	$res = mysqli_query($db, "CREATE TABLE IF NOT EXISTS compone(
+    codigo_pro varchar(30) not null,
+    usuario_miembro varchar(30) not null,
+    CONSTRAINT FK_CODIGO_ERROR FOREIGN KEY (codigo_pro) REFERENCES proyectos(codigo),
+    CONSTRAINT FK_USUARIO_ERROR FOREIGN KEY (usuario_miembro) REFERENCES miembros(usuario),
+    PRIMARY KEY(codigo_pro,usuario_miembro)
+)");
+	if ($res) { // Si no hay error
+		mysqli_free_result($res); // Liberar memoria de la consulta
+		return true;
+	} else { // Error en la consulta
+		return false;
+	}
+
+}
 ?>
