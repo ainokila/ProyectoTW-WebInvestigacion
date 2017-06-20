@@ -9,7 +9,7 @@
 ?>
 	<div class="principal-der">
 			<div class="login">
-				<form class="form-horizontal" action="./registro.php" method="post">
+				<form class="form-horizontal" action="./instalar.php" method="post">
 
 
 
@@ -86,19 +86,22 @@
 ?>
 
 <?php
-	if(isset($_POST["alta"])){
+	if(isset($_POST["alta"]) && !$GLOBALS['instalado']){
+
 		$usuario = $_POST["usuario"];
 		$pass = $_POST["pass"];
 		$nombre = $_POST["nombre"];
-		$tipo = $_POST["tipo"];
 		$direccion = $_POST["direccion"];
 		$telefono = $_POST["telefono"];
 		$email = $_POST["email"];
 
-		if($usuario != null && $pass != null && $nombre != null && $tipo != null && $direccion != null && $telefono != null && $email != null){
+		if($usuario != null && $pass != null && $nombre != null && $direccion != null && $telefono != null && $email != null){
 			$db = BD_conexion();
-			BD_creaBaseDatos($db);
-			BD_insertUsuario($db, $usuario, $pass , $nombre, $tipo, $direccion, $telefono, $email,"0");
+			if(BD_creaBaseDatos($db)){
+				BD_insertUsuario($db, $usuario, $pass , $nombre, "Administrador", $direccion, $telefono, $email,"0");
+				$GLOBALS['instalado'] = true;
+				header("Location: ./iniciar-sesion.php");
+			}
 			BD_desconexion($db);
 		}
 	}
