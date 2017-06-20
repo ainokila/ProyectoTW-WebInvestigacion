@@ -1,7 +1,9 @@
 
 function validarFormulario(e) {
 	var err = "";
-	if (!validarTelefono(e.target.tele.value))
+	if (!validarContrasenias(e.target.pwd2.value))
+		err += "Las contraseñas no coinciden.\n";
+	if (!validarTelefono(e.target.telefono.value))
 		err += "El teléfono es incorrecto\n";
 	if (!validarEmail(e.target.email.value))
 		err += "El email es incorrecto\n";

@@ -1,7 +1,7 @@
 ﻿<?php
 		include './include/sesion.php';
 		validaUsuario();
-		include '../plantillas/head-login.html';
+		include '../plantillas/head-registro.html';
 		generaCabecera();
 		generaMenu();
 		
@@ -30,7 +30,7 @@
 				    <div class="form-group">
 				      <label class="control-label col-sm-2" for="pwd">Password:</label>
 				      <div class="col-sm-10">          
-				        <input type="password" class="form-control" id="pwd" placeholder="Introduza contraseña" name="pass2">
+				        <input type="password" class="form-control" id="pwd2" placeholder="Introduza contraseña" name="pass2">
 				      </div>
 				    </div>
 
