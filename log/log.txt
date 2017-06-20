@@ -1,4 +1,6 @@
 [2017-06-20 11:47:46.000000]admin inicia sesion
 [2017-06-20 11:56:27.000000]  Accion: cristian falla inicia sesion
-[2017-06-20 12:07:44.000000]  Accion: Update proyect 1111
-[2017-06-20 12:07:56.000000]  Accion: Update proyect 1111
+[2017-06-20 12:04:00.000000]  Accion: admin inicia sesion
+[2017-06-20 12:04:57.000000]  Accion: Update publication 11111
+[2017-06-20 12:13:54.000000]  Accion: Error insert publication 
+[2017-06-20 12:16:45.000000]  Accion: admin inicia sesion

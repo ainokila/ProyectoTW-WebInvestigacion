@@ -6,6 +6,15 @@
 		//include "../plantillas/cabecera-menu.html";
 		generaCabecera();
 		generaMenu();
+
+		if(isset($_SESSION["usuario"])){
+			$privilegiosActuales = $_SESSION["privilegios"];
+			if($privilegiosActuales==2 || $privilegiosActuales==1){
+				header('Location: ../php/principal.php');
+			}
+		}else{
+			header('Location: ../php/principal.php');
+		}
 		
 
 ?>
