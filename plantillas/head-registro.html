@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Investigación WEB</title>
+	<link rel="stylesheet" type="text/css" href="../css/headerFooter.css">
+	<link rel="stylesheet" type="text/css" href="../css/login.css">
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  	<script type="text/javascript" src="../js/validar.js"></script>
+  	<script type="text/javascript"> 
+
+		function validarContrasenias(e){
+			if(!(document.getElementById('pwd').value == document.getElementById('pwd2').value)){
+				return false;
+			}
+			return true;
+		}
+
+		function changePass2(e) {
+			if (!validarContrasenias(this.value))
+				alert("Las contraseñas no coinciden");
+		}
+
+		onload = function() {
+			document.getElementById('telefono').addEventListener('change',changeTelefono);
+			document.getElementById('email').addEventListener('change',changeEmail);
+			document.getElementById('pwd2').addEventListener('change',changePass2);
+			document.getElementById('form-horizontal').addEventListener('submit',validarFormulario);
+		}
+	</script>
+</head>
+<body>
