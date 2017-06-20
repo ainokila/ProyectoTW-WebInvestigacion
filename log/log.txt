@@ -23,3 +23,6 @@
 [2017-06-20 18:59:58.000000]  Accion: New user asd
 [2017-06-20 19:00:33.000000]  Accion: asd falla inicia sesion
 [2017-06-20 19:00:33.000000]  Accion: New user asd
+[2017-06-20 19:32:14.000000]  Accion: admin falla inicia sesion
+[2017-06-20 19:32:14.000000]  Accion: Create data base
+[2017-06-20 19:32:14.000000]  Accion: New user admin
