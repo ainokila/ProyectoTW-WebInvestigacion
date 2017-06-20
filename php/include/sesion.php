@@ -7,15 +7,7 @@ function updateLog($cadena){
 	$nombre_archivo = "../log/log.txt";
 	if($archivo = fopen($nombre_archivo, "a"))
     {
-        if(fwrite($archivo, "[".date("Y-m-d H:i:s.u")."]  Accion: ".$cadena."\n"))
-        {
-            echo "Ok log";
-        }
-        else
-        {
-            echo "Corrupt log";
-        }
- 
+        fwrite($archivo, "[".date("Y-m-d H:i:s.u")."]  Accion: ".$cadena."\n");
         fclose($archivo);
     }
 
@@ -170,7 +162,6 @@ function validaUsuario(){
 		if($_POST["usuario"]!=""&& $_POST["pass"]!=""){
 				$user = $_POST["usuario"];
 				$password = $_POST["pass"];
-				echo sha1($password);
 			if(compruebaUsuarioPass($user, $password, $privilegios)){
 				$_SESSION["usuario"] = $user;
 				$_SESSION["privilegios"] = $privilegios;
@@ -442,8 +433,8 @@ function BD_insertUsuario($db, $user, $pass , $nombre, $tipo, $direccion, $telef
 	$res = mysqli_query($db, "INSERT INTO miembros(usuario,password	,nombre	,categoria,	direccion,	tel	,email, privilegios) VALUES('$user', '$pass', '$nombre', '$tipo', '$direccion', '$telefono', '$email', '$privilegios')");
 	if ($res) { // Si no hay error
 		updateLog("New user $user");
+		//mysqli_free_result($res); // Liberar memoria de la consulta
 		return true;
-		mysqli_free_result($res); // Liberar memoria de la consulta
 	} else { // Error en la consulta
 		updateLog("Failed New user $user");
 		echo $res;
@@ -522,7 +513,7 @@ function BD_creaBaseDatos($db){
 	
 	updateLog("Create data base");
 
-	$res1 = mysqli_query($db, "CREATE TABLE IF NOT EXISTS MIEMBROS(
+	$res1 = mysqli_query($db, "CREATE TABLE IF NOT EXISTS miembros(
     usuario varchar(30) not null PRIMARY KEY,
     password varchar(100) not null ,
     nombre varchar(30) not null,
@@ -532,14 +523,13 @@ function BD_creaBaseDatos($db){
     email varchar(30) not null,
     privilegios int not null default 1)");
 	if ($res1) { // Si no hay error
-		mysqli_free_result($res1); // Liberar memoria de la consulta
+		//mysqli_free_result($res1); // Liberar memoria de la consulta
 	} else { // Error en la consulta
-		updateLog("Error create data base");
 		return false;
 	}
 
 
-	$res2 = mysqli_query($db, "CREATE TABLE IF NOT EXISTS PROYECTOS(
+	$res2 = mysqli_query($db, "CREATE TABLE IF NOT EXISTS proyectos(
     codigo varchar(30) not null PRIMARY KEY,
     titulo varchar(30) not null ,
     descripcion varchar(500) not null,
@@ -551,14 +541,13 @@ function BD_creaBaseDatos($db){
     inv_secundarios varchar(400) not null,
     url varchar(100) not null)");
 	if ($res2) { // Si no hay error
-		mysqli_free_result($res2); // Liberar memoria de la consulta
+		//mysqli_free_result($res2); // Liberar memoria de la consulta
 	} else { // Error en la consulta
-		updateLog("Error create data base");
 		return false;
 	}
 
 
-	$res3 = mysqli_query($db, "CREATE TABLE IF NOT EXISTS PUBLICACION(
+	$res3 = mysqli_query($db, "CREATE TABLE IF NOT EXISTS publicacion(
     doi varchar(30) not null PRIMARY KEY,
     titulo varchar(30) not null ,
     autores varchar(200) not null,
@@ -569,9 +558,8 @@ function BD_creaBaseDatos($db){
     proyecto_vin varchar(30) not null,
     FOREIGN KEY (proyecto_vin) REFERENCES proyectos(codigo))");
 	if ($res3) { // Si no hay error
-		mysqli_free_result($res3); // Liberar memoria de la consulta
+		//mysqli_free_result($res3); // Liberar memoria de la consulta
 	} else { // Error en la consulta
-		updateLog("Error create data base");
 		return false;
 	}
 
@@ -582,10 +570,9 @@ function BD_creaBaseDatos($db){
     CONSTRAINT FK_DOI_ERROR FOREIGN KEY (doi_pub) REFERENCES publicacion(doi),
     CONSTRAINT FK_NOMBRE_ERROR FOREIGN KEY (usuario_miembro) REFERENCES miembros(usuario),
     PRIMARY KEY(doi_pub,usuario_miembro))");
-	if ($res) { // Si no hay error
-		mysqli_free_result($res4); // Liberar memoria de la consulta
+	if ($res4) { // Si no hay error
+		//mysqli_free_result($res4); // Liberar memoria de la consulta
 	} else { // Error en la consulta
-		updateLog("Error create data base");
 		return false;
 	}
 
@@ -597,11 +584,9 @@ function BD_creaBaseDatos($db){
     CONSTRAINT FK_USUARIO_ERROR FOREIGN KEY (usuario_miembro) REFERENCES miembros(usuario),
     PRIMARY KEY(codigo_pro,usuario_miembro))");
 	if ($res5) { // Si no hay error
-		mysqli_free_result($res5); // Liberar memoria de la consulta
-		updateLog("Create data base sucesfull");
+		//mysqli_free_result($res5); // Liberar memoria de la consulta
 		return true;
 	} else { // Error en la consulta
-		updateLog("Create data base unsucesfull");
 		return false;
 	}
 

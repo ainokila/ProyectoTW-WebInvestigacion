@@ -77,7 +77,7 @@
 
 				    <div class="form-group">        
 				      <div class="col-sm-offset-2 col-sm-10">
-				        <div class='frm_submit'><input type='submit' name='accion' value='Submit'/></div>
+				        <div class='frm_submit'><input type='submit' name='alta' value='Submit'/></div>
 				      </div>
 				    </div>
 
