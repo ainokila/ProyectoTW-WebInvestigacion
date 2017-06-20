@@ -10,3 +10,19 @@
 [2017-06-20 12:22:19.000000]  Accion: New user admin11
 [2017-06-20 12:22:24.000000]  Accion: Erase user admin11
 [2017-06-20 12:22:30.000000]  Accion: Update user 
+[2017-06-20 12:39:48.000000]  Accion: admin falla inicia sesion
+[2017-06-20 12:40:22.000000]  Accion: admin inicia sesion
+[2017-06-20 12:40:36.000000]  Accion: admin inicia sesion
+[2017-06-20 12:44:26.000000]  Accion: Failed New user <h1>HOLA</h1>
+[2017-06-20 12:45:58.000000]  Accion: Failed New user admin23
+[2017-06-20 12:46:33.000000]  Accion: Failed New user admin45
+[2017-06-20 12:51:16.000000]  Accion: Failed New user ainokila
+[2017-06-20 12:56:33.000000]  Accion: admin2 falla inicia sesion
+[2017-06-20 12:56:33.000000]  Accion: Failed New user admin2
+[2017-06-20 12:57:36.000000]  Accion: admin2 falla inicia sesion
+[2017-06-20 12:57:36.000000]  Accion: Failed New user admin2
+[2017-06-20 12:59:42.000000]  Accion: admin inicia sesion
+[2017-06-20 13:00:02.000000]  Accion: Failed New user Luis
+[2017-06-20 13:01:40.000000]  Accion: New user admin2
+[2017-06-20 13:03:07.000000]  Accion: New user admin3
+[2017-06-20 13:11:59.000000]  Accion: Insert proyect prueba

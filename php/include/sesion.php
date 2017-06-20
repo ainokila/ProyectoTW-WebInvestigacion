@@ -267,6 +267,18 @@ function BD_borrarProyecto($db,$codigo){
 }
 
 function BD_updateProyecto($db,$codigo,$titulo,$descripcion,$comienzo,$fin,$entidades,$cuantia,$inv_principal,$inv_secundarios,$url){
+
+	$codigo = strip_tags($codigo);
+	$titulo  = strip_tags($titulo);
+	$descripcion = strip_tags($descripcion);
+	$comienzo = strip_tags($comienzo);
+	$fin = strip_tags($fin);
+	$entidades = strip_tags($entidades);
+	$cuantia = strip_tags($cuantia);
+	$inv_principal = strip_tags($inv_principal);
+	$inv_secundarios= strip_tags($inv_secundarios);
+	$url= strip_tags($url);
+
 	$res = mysqli_query($db, "UPDATE proyectos SET titulo = '$titulo', descripcion = '$descripcion', comienzo = DATE_FORMAT('$comienzo', '%Y/%m/%d'), fin = DATE_FORMAT('$fin', '%Y/%m/%d'), entidades = '$entidades',cuantia = '$cuantia',inv_principal = '$inv_principal',inv_secundarios = '$inv_secundarios',url = '$url' WHERE codigo = '$codigo' ");
 	if ($res) { // Si no hay error
 		write_log("Update proyect $codigo");
@@ -280,6 +292,19 @@ function BD_updateProyecto($db,$codigo,$titulo,$descripcion,$comienzo,$fin,$enti
 }
 
 function BD_insertarProyecto($db,$codigo,$titulo,$descripcion,$comienzo,$fin,$entidades,$cuantia,$inv_principal,$inv_secundarios,$url){
+
+	$codigo = strip_tags($codigo);
+	$titulo  = strip_tags($titulo);
+	$descripcion = strip_tags($descripcion);
+	$comienzo = strip_tags($comienzo);
+	$fin = strip_tags($fin);
+	$entidades = strip_tags($entidades);
+	$cuantia = strip_tags($cuantia);
+	$inv_principal = strip_tags($inv_principal);
+	$inv_secundarios= strip_tags($inv_secundarios);
+	$url= strip_tags($url);
+
+
 	$res = mysqli_query($db, "INSERT INTO proyectos(codigo ,titulo,descripcion,comienzo,fin,entidades,cuantia,inv_principal,inv_secundarios,url) VALUES('$codigo','$titulo','$descripcion','$comienzo','$fin','$entidades','$cuantia','$inv_principal','$inv_secundarios','$url')");
 
 	if ($res) { // Si no hay error
@@ -340,6 +365,15 @@ function BD_borrarPublicacion($db,$doi){
 }
 
 function BD_updatePublicacion($db,$doi,$titulo,$autores,$fechapub,$resumen,$palabras_clave,$url,$proyecto_vin){
+	$doi = strip_tags($doi);
+	$titulo  = strip_tags($titulo);
+	$autores = strip_tags($autores);
+	$fechapub = strip_tags($fechapub);
+	$resumen = strip_tags($resumen);
+	$palabras_clave = strip_tags($palabras_clave);
+	$url = strip_tags($url);
+	$proyecto_vin = strip_tags($proyecto_vin);
+
 	$res = mysqli_query($db, "UPDATE publicacion SET titulo = '$titulo', autores = '$autores', fechapub = DATE_FORMAT('$fechapub', '%Y/%m/%d'), resumen = '$resumen',palabras_clave = '$palabras_clave',url = '$url',proyecto_vin = '$proyecto_vin' WHERE doi = '$doi' ");
 	if ($res) { // Si no hay error
 		write_log("Update publication $doi");
@@ -353,6 +387,17 @@ function BD_updatePublicacion($db,$doi,$titulo,$autores,$fechapub,$resumen,$pala
 }
 
 function BD_insertPublicacion($db,$doi,$titulo,$autores,$fechapub,$resumen,$palabras_clave,$url,$proyecto_vin){
+
+	$doi = strip_tags($doi);
+	$titulo  = strip_tags($titulo);
+	$autores = strip_tags($autores);
+	$fechapub = strip_tags($fechapub);
+	$resumen = strip_tags($resumen);
+	$palabras_clave = strip_tags($palabras_clave);
+	$url = strip_tags($url);
+	$proyecto_vin = strip_tags($proyecto_vin);
+
+
 	$res = mysqli_query($db, "INSERT INTO publicacion(doi ,titulo,autores,fechapub,resumen,palabras_clave,url,proyecto_vin) VALUES('$doi','$titulo','$autores','$fechapub','$resumen','$palabras_clave','$url','$proyecto_vin')");
 
 	if ($res) { // Si no hay error
@@ -383,6 +428,15 @@ return $tabla;
 
 /*METODOS MIEMBROS*/
 function BD_insertUsuario($db, $user, $pass , $nombre, $tipo, $direccion, $telefono, $email,$privilegios){
+
+	$user = strip_tags($user);
+	$pass  = strip_tags($pass);
+	$nombre = strip_tags($nombre);
+	$tipo = strip_tags($tipo);
+	$telefono = strip_tags($telefono);
+	$telefono = strip_tags($telefono);
+	$privilegios = strip_tags($privilegios);
+
 	$pass = sha1($pass);
 	$res = mysqli_query($db, "INSERT INTO miembros(usuario,password	,nombre	,categoria,	direccion,	tel	,email, privilegios) VALUES('$user', '$pass', '$nombre', '$tipo', '$direccion', '$telefono', '$email', '$privilegios')");
 	if ($res) { // Si no hay error
@@ -441,6 +495,15 @@ function BD_borrarMiembro($db,$user){
 }
 
 function BD_updateMiembro($db,$usuario,$nombre,$categoria,$direccion,$tel,$email,$privilegios){
+
+	$usuario = strip_tags($usuario);
+	$nombre = strip_tags($nombre);
+	$categoria = strip_tags($categoria);
+	$direccion = strip_tags($direccion);
+	$tel = strip_tags($tel);
+	$email = strip_tags($email);
+	$privilegios = strip_tags($privilegios);
+
 	$res = mysqli_query($db, "UPDATE miembros SET nombre = '$nombre', categoria = '$categoria', direccion ='$direccion', tel = '$tel',email = '$email',privilegios = '$privilegios' WHERE usuario = '$usuario' ");
 	if ($res) { // Si no hay error
 		write_log("Update user $user");
