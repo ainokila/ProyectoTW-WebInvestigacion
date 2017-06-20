@@ -14,8 +14,21 @@
 
 
 				<div class="principal-der">
-			<p>Mostrar log del sistema</p>
-		</div>
+					<?php 
+						 
+						    $nombre_archivo = "../log/log.txt"; 
+						    if(file_exists($nombre_archivo)) 
+						    {
+						        echo  nl2br(file_get_contents($nombre_archivo));
+						    }
+						    else
+						    {
+						        $mensaje = "El archivo no existe";
+						    }
+						 
+						 
+					?>
+				</div>
 	</div>
 
 <?php

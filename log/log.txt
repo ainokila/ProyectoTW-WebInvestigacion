@@ -1,0 +1,2 @@
+[2017-06-20 11:47:46.000000]admin inicia sesion
+[2017-06-20 11:56:27.000000]  Accion: cristian falla inicia sesion
