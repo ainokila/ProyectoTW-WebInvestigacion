@@ -9,7 +9,7 @@
 ?>
 	<div class="principal-der">
 			<div class="login">
-				<form class="form-horizontal" action="./registro.php" method="post">
+				<form class="form-horizontal" id="form-horizontal" action="./registro.php" method="post">
 
 
 
@@ -77,7 +77,7 @@
 
 				    <div class="form-group">        
 				      <div class="col-sm-offset-2 col-sm-10">
-				        <button type="submit" name="alta" value="Alta" class="btn btn-default">Alta</button>
+				        <div class='frm_submit'><input type='submit' name='accion' value='Submit'/></div>
 				      </div>
 				    </div>
 
