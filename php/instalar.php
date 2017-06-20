@@ -88,13 +88,6 @@
 <?php
 	if(isset($_POST["alta"]) && !$GLOBALS['instalado']){
 
-		$usuario = $_POST["usuario"];
-		$pass = $_POST["pass"];
-		$nombre = $_POST["nombre"];
-		$direccion = $_POST["direccion"];
-		$telefono = $_POST["telefono"];
-		$email = $_POST["email"];
-
 		if($usuario != null && $pass != null && $nombre != null && $direccion != null && $telefono != null && $email != null){
 			$db = BD_conexion();
 			if(BD_creaBaseDatos($db)){
