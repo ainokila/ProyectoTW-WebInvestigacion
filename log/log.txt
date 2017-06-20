@@ -4,3 +4,9 @@
 [2017-06-20 12:04:57.000000]  Accion: Update publication 11111
 [2017-06-20 12:13:54.000000]  Accion: Error insert publication 
 [2017-06-20 12:16:45.000000]  Accion: admin inicia sesion
+[2017-06-20 12:21:04.000000]  Accion: admin falla inicia sesion
+[2017-06-20 12:21:26.000000]  Accion: admin inicia sesion
+[2017-06-20 12:22:02.000000]  Accion: Update user 
+[2017-06-20 12:22:19.000000]  Accion: New user admin11
+[2017-06-20 12:22:24.000000]  Accion: Erase user admin11
+[2017-06-20 12:22:30.000000]  Accion: Update user 
