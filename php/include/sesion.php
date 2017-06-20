@@ -2,7 +2,7 @@
 
 require_once('credenciales.php');
 
-function write_log($cadena){
+function updateLog($cadena){
 
 	$nombre_archivo = "../log/log.txt";
 	if($archivo = fopen($nombre_archivo, "a"))
@@ -173,10 +173,10 @@ function validaUsuario(){
 			if(compruebaUsuarioPass($user, $password, $privilegios)){
 				$_SESSION["usuario"] = $user;
 				$_SESSION["privilegios"] = $privilegios;
-				write_log("$user inicia sesion");
+				updateLog("$user inicia sesion");
 				header("Location: ./principal.php");
 			}else{
-				write_log("$user falla inicia sesion");
+				updateLog("$user falla inicia sesion");
 				if(session_status()==PHP_SESSION_NONE){
 					session_start();
 				}
@@ -256,11 +256,11 @@ return $tabla;
 function BD_borrarProyecto($db,$codigo){
 	$res = mysqli_query($db, "DELETE FROM proyectos WHERE codigo = '$codigo'");
 	if ($res) { // Si no hay error
-		write_log("Erase proyect $codigo");
+		updateLog("Erase proyect $codigo");
 		return true;
 		mysqli_free_result($res); // Liberar memoria de la consulta
 	} else { // Error en la consulta
-		write_log("Error erase proyect $codigo");
+		updateLog("Error erase proyect $codigo");
 		echo $res;
 		return false;
 	}
@@ -281,11 +281,11 @@ function BD_updateProyecto($db,$codigo,$titulo,$descripcion,$comienzo,$fin,$enti
 
 	$res = mysqli_query($db, "UPDATE proyectos SET titulo = '$titulo', descripcion = '$descripcion', comienzo = DATE_FORMAT('$comienzo', '%Y/%m/%d'), fin = DATE_FORMAT('$fin', '%Y/%m/%d'), entidades = '$entidades',cuantia = '$cuantia',inv_principal = '$inv_principal',inv_secundarios = '$inv_secundarios',url = '$url' WHERE codigo = '$codigo' ");
 	if ($res) { // Si no hay error
-		write_log("Update proyect $codigo");
+		updateLog("Update proyect $codigo");
 		return true;
 		mysqli_free_result($res); // Liberar memoria de la consulta
 	} else { // Error en la consulta
-		write_log("Error update proyect $codigo");
+		updateLog("Error update proyect $codigo");
 		echo $res;
 		return false;
 	}
@@ -308,11 +308,11 @@ function BD_insertarProyecto($db,$codigo,$titulo,$descripcion,$comienzo,$fin,$en
 	$res = mysqli_query($db, "INSERT INTO proyectos(codigo ,titulo,descripcion,comienzo,fin,entidades,cuantia,inv_principal,inv_secundarios,url) VALUES('$codigo','$titulo','$descripcion','$comienzo','$fin','$entidades','$cuantia','$inv_principal','$inv_secundarios','$url')");
 
 	if ($res) { // Si no hay error
-		write_log("Insert proyect $codigo");
+		updateLog("Insert proyect $codigo");
 		return true;
 		mysqli_free_result($res); // Liberar memoria de la consulta
 	} else { // Error en la consulta
-		write_log("Error nsert proyect $codigo");
+		updateLog("Error nsert proyect $codigo");
 		echo $res;
 		return false;
 	}
@@ -354,11 +354,11 @@ return $tabla;
 function BD_borrarPublicacion($db,$doi){
 	$res = mysqli_query($db, "DELETE FROM publicacion WHERE doi = '$doi'");
 	if ($res) { // Si no hay error
-		write_log("Erase publication $doi");
+		updateLog("Erase publication $doi");
 		return true;
 		mysqli_free_result($res); // Liberar memoria de la consulta
 	} else { // Error en la consulta
-		write_log("Error erase publication $doi");
+		updateLog("Error erase publication $doi");
 		echo $res;
 		return false;
 	}
@@ -376,11 +376,11 @@ function BD_updatePublicacion($db,$doi,$titulo,$autores,$fechapub,$resumen,$pala
 
 	$res = mysqli_query($db, "UPDATE publicacion SET titulo = '$titulo', autores = '$autores', fechapub = DATE_FORMAT('$fechapub', '%Y/%m/%d'), resumen = '$resumen',palabras_clave = '$palabras_clave',url = '$url',proyecto_vin = '$proyecto_vin' WHERE doi = '$doi' ");
 	if ($res) { // Si no hay error
-		write_log("Update publication $doi");
+		updateLog("Update publication $doi");
 		return true;
 		mysqli_free_result($res); // Liberar memoria de la consulta
 	} else { // Error en la consulta
-		write_log("Error update publication $doi");
+		updateLog("Error update publication $doi");
 		echo $res;
 		return false;
 	}
@@ -401,11 +401,11 @@ function BD_insertPublicacion($db,$doi,$titulo,$autores,$fechapub,$resumen,$pala
 	$res = mysqli_query($db, "INSERT INTO publicacion(doi ,titulo,autores,fechapub,resumen,palabras_clave,url,proyecto_vin) VALUES('$doi','$titulo','$autores','$fechapub','$resumen','$palabras_clave','$url','$proyecto_vin')");
 
 	if ($res) { // Si no hay error
-		write_log("Insert publication $doi");
+		updateLog("Insert publication $doi");
 		return true;
 		mysqli_free_result($res); // Liberar memoria de la consulta
 	} else { // Error en la consulta
-		write_log("Error insert publication $doi");
+		updateLog("Error insert publication $doi");
 		echo $res;
 		return false;
 	}
@@ -440,11 +440,11 @@ function BD_insertUsuario($db, $user, $pass , $nombre, $tipo, $direccion, $telef
 	$pass = sha1($pass);
 	$res = mysqli_query($db, "INSERT INTO miembros(usuario,password	,nombre	,categoria,	direccion,	tel	,email, privilegios) VALUES('$user', '$pass', '$nombre', '$tipo', '$direccion', '$telefono', '$email', '$privilegios')");
 	if ($res) { // Si no hay error
-		write_log("New user $user");
+		updateLog("New user $user");
 		return true;
 		mysqli_free_result($res); // Liberar memoria de la consulta
 	} else { // Error en la consulta
-		write_log("Failed New user $user");
+		updateLog("Failed New user $user");
 		echo $res;
 		return false;
 	}
@@ -484,11 +484,11 @@ return $tabla;
 function BD_borrarMiembro($db,$user){
 	$res = mysqli_query($db, "DELETE FROM miembros WHERE usuario = '$user'");
 	if ($res) { // Si no hay error
-		write_log("Erase user $user");
+		updateLog("Erase user $user");
 		return true;
 		mysqli_free_result($res); // Liberar memoria de la consulta
 	} else { // Error en la consulta
-		write_log("Failed erase user $user");
+		updateLog("Failed erase user $user");
 		echo $res;
 		return false;
 	}
@@ -506,11 +506,11 @@ function BD_updateMiembro($db,$usuario,$nombre,$categoria,$direccion,$tel,$email
 
 	$res = mysqli_query($db, "UPDATE miembros SET nombre = '$nombre', categoria = '$categoria', direccion ='$direccion', tel = '$tel',email = '$email',privilegios = '$privilegios' WHERE usuario = '$usuario' ");
 	if ($res) { // Si no hay error
-		write_log("Update user $user");
+		updateLog("Update user $user");
 		return true;
 		mysqli_free_result($res); // Liberar memoria de la consulta
 	} else { // Error en la consulta
-		write_log("Failed update user $user");
+		updateLog("Failed update user $user");
 		echo $res;
 		return false;
 	}
@@ -519,7 +519,7 @@ function BD_updateMiembro($db,$usuario,$nombre,$categoria,$direccion,$tel,$email
 
 function BD_creaBaseDatos($db){
 	
-	write_log("Create data base");
+	updateLog("Create data base");
 
 	$res1 = mysqli_query($db, "CREATE TABLE IF NOT EXISTS MIEMBROS(
     usuario varchar(30) not null PRIMARY KEY,
@@ -533,7 +533,7 @@ function BD_creaBaseDatos($db){
 	if ($res1) { // Si no hay error
 		mysqli_free_result($res1); // Liberar memoria de la consulta
 	} else { // Error en la consulta
-		write_log("Error create data base");
+		updateLog("Error create data base");
 		return false;
 	}
 
@@ -552,7 +552,7 @@ function BD_creaBaseDatos($db){
 	if ($res2) { // Si no hay error
 		mysqli_free_result($res2); // Liberar memoria de la consulta
 	} else { // Error en la consulta
-		write_log("Error create data base");
+		updateLog("Error create data base");
 		return false;
 	}
 
@@ -570,7 +570,7 @@ function BD_creaBaseDatos($db){
 	if ($res3) { // Si no hay error
 		mysqli_free_result($res3); // Liberar memoria de la consulta
 	} else { // Error en la consulta
-		write_log("Error create data base");
+		updateLog("Error create data base");
 		return false;
 	}
 
@@ -584,7 +584,7 @@ function BD_creaBaseDatos($db){
 	if ($res) { // Si no hay error
 		mysqli_free_result($res4); // Liberar memoria de la consulta
 	} else { // Error en la consulta
-		write_log("Error create data base");
+		updateLog("Error create data base");
 		return false;
 	}
 
@@ -597,10 +597,10 @@ function BD_creaBaseDatos($db){
     PRIMARY KEY(codigo_pro,usuario_miembro))");
 	if ($res5) { // Si no hay error
 		mysqli_free_result($res5); // Liberar memoria de la consulta
-		write_log("Create data base sucesfull");
+		updateLog("Create data base sucesfull");
 		return true;
 	} else { // Error en la consulta
-		write_log("Create data base unsucesfull");
+		updateLog("Create data base unsucesfull");
 		return false;
 	}
 
