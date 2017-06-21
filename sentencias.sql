@@ -56,10 +56,10 @@ CREATE TABLE IF NOT EXISTS compone(
 );
 
 INSERT INTO miembros( usuario, password, nombre, categoria,direccion, tel, email,privilegios)
-VALUES("admin", "8cb2237d0679ca88db6464eac60da96345513964", "Administrador", "Administrador", "C/Jardines Nº13", "670876090", "admin@local.es","0");
+VALUES("admin", "8cb2237d0679ca88db6464eac60da96345513964", "Administrador", "Administrador", "C/Administrativa Nº1", "666666666", "admin@local.es","0");
 
 INSERT INTO proyectos(codigo,titulo,descripcion,comienzo,fin,entidades,cuantia,inv_principal,inv_secundarios,url)
-VALUES("1111", "Proyecto 1", "Un proyecto muy bonito.", "2017-06-19", "2017-06-19","Caixa","12345", "Saytes","Compis de Saytes", "www.atiqueteimporta.com");
+VALUES("1111", "Proyecto 1", "Un proyecto muy bonito.", "2017-06-19", "2017-06-19","Caixa","12345", "Saytes","Compis de Saytes", "http://www.publicacion.com");
 
 INSERT INTO publicacion(doi,titulo,autores,fechapub,resumen,palabras_clave,url,proyecto_vin)
- VALUES("11111", "Proyecto 1", "Cristian y Jorge.", "2017-06-19","Una publicación de mierda.","Mogollón de Palabras clave", "www.atiqueteimporta.com","1111");
+ VALUES("11111", "Proyecto 1", "Cristian y Jorge.", "2017-06-19","Una publicación extensa.","Mogollón de Palabras clave", "http://www.proyecto.com","1111");
